@@ -11,7 +11,7 @@ var processIntent = function(intentId) {
     clearTimeout(GameData.timer);
 
     GameMachine.intentResponseCallback(isSuccess);
-}
+};
 
 var setupState = function(response) {
     GameMachine.intentResponseCallback = function(intentId) {};
@@ -48,7 +48,7 @@ var tutorialState = function(response) {
 };
 
 var GameMachine = {
-    processEvent: processEvent,
+    processIntent: processIntent,
 
     runloop: function (response) {
       var currentState = GameData.currentState;
