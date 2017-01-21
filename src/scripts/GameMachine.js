@@ -1,113 +1,67 @@
-var runEvent = function (event) {
-  // play event.prompt
-  // wait for 10 seconds
-  // detect intent somehow -- a handler?
-  // convert intent to int
-  var intentId = gameIntents.WRECK;
+// welcome text
+// tutorial text (pull out first event)
 
-  var responseId = event.actions[intentId];
-  var response = event.responses[responseId];
-  var responsePrompt = response.prompt;
-  var isSuccess = response.isSuccess;
-
-  // play response.prompt
-  return response.isSuccess;
-}
-
-var tutorialState = function () {
-    var event = gameData.tutorialEvents[0];
-    var isSuccess = runEvent(event);
-
-    if (isSuccess) {
-        // The player can only continue when they succeed at the tutorial event.
-        gameData.tutorialEvents.shift();
-    }
-
-    if (gameData.tutorialEvents.length === 0) {
-        gameData.currentState = gameStates.FIGHT;
-    }
-};
-
-/*var fightState = function () {
-    // TODO: Randomize the fight events later!!!!!!!!
-    GameData.currentEvent = GameData.fightEvents[0];
-
-    setTimeout(function() {
-        // Oops, the player didn't respond :(
-    }, 10*1000);
-
-    /// wait for response
-
-    var isSuccess = runEvent(event);
-
-    if (isSuccess) {
-        // The player can only continue when they succeed at the tutorial event.
-        gameData.tutorialEvents.shift();
-    }
-
-    if (gameData.tutorialEvents.length === 0) {
-        gameData.currentState = gameStates.FIGHT;
-    }
-};*/
-
-var processIntent = function(intent /* WRECK IT, PUMP IT UP */) {
-    var currentEvent = GameData.currentEvent; // comes from somewhere
-    var isSuccess = runEvent(event);
-
-    // play event.prompt
-    // wait for 10 seconds
-    // detect intent somehow -- a handler?
-    // convert intent to int
-
+var processIntent = function(intentId) {
+    var event = GameData.currentEvent;
     var responseId = event.actions[intentId];
     var response = event.responses[responseId];
     var responsePrompt = response.prompt;
     var isSuccess = response.isSuccess;
 
-    if (isSuccess) {
-        // The player can only continue when they succeed at the tutorial event.
-        gameData.tutorialEvents.shift();
-    }
+    clearTimeout(GameData.timer);
 
-    if (gameData.tutorialEvents.length === 0) {
-        gameData.currentState = gameStates.FIGHT;
-    }
+    GameMachine.intentResponseCallback(isSuccess);
 }
 
-var runloop = function (blob) {
-    switch(gameData.currentState) {
-       case gameStates.SETUP:
-          setupState(blob);
-          break;
-       case gameStates.LOADING:
-          // still loading?
-          break;
-       case gameStates.TUTORIAL:
-          tutorialState(blob);
-          break;
-       case gameStates.FIGHT:
-          fightState(blob);
-          break;
-       case gameStates.ENDING:
-       case gameStates.FINISH:
+var setupState = function(response) {
+    GameMachine.intentResponseCallback = function(intentId) {};
+
+    // welcome to game
+    response.tell("Welcome to GET EM BRUTEDON, a heartwarming tale of friendship and destroying cities");
+    return GameConst.States.TUTORIAL;
+};
+
+var tutorialResponse = function(isSuccess) {
+    if (isSuccess) {
+        GameData.tutorialEvents.shift();
+    }
+    if (GameData.tutorialEvents.isEmpty()) {
+        GameData.currentState = GameConst.States.FIGHT;
     }
 };
 
-var setupState = function () {
-    gameData.currentState = gameStates.LOADING;
+var tutorialState = function(response) {
+    GameMachine.intentResponseCallback = tutorialResponse;
+    // Start the heartbreaking story
+    // iterate through the tutorial events
 
-    d3.tsv("BRUTADON_EVENTS - Sheet1.tsv", function (data) {
-        gameStates.fightEvents = [];
+    var tutorialEvent = GameData.tutorialEvents[0];
+    GameData.currentEvent = tutorialEvent;
+    response.tell(tutorialEvent.prompt);
 
-        d3.tsv("BRUTADON_EVENTS - Sheet1.tsv", function (data) {
-            gameStates.tutorialEvents = [];
+    // set up game state
+    GameData.timer = setTimeout(function () {
+        // simulate no-response intent
+        var isSuccess = processIntent(NO_RESPONSE);
+        tutorialResponse(isSuccess);
+    }, 10*1000);
+};
 
-            gameData.currentState = gameStates.TUTORIAL;
-            console.log("YOU GOT THIS BRUTADON");
-        });
-    });
+var GameMachine = {
+    processEvent: processEvent,
+
+    runloop: function (response) {
+      var currentState = GameData.currentState;
+
+      switch (GameData.currentState) {
+          case GameConst.States.SETUP:
+              GameData.currentState = setupState(response);
+              break;
+          case GameConst.States.TUTORIAL:
+              GameData.currentState = tutorialState(response);
+          default:;
+      }
+    }
 }
 
-var processIntent = function(response) {
-
-}
+module.exports = GameMachine;

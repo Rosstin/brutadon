@@ -8,7 +8,6 @@
 var GameConst = {
     States: {
       SETUP: 'SETUP',
-      LOADING: 'LOADING',
       TUTORIAL: 'TUTORIAL',
       FIGHT: 'FIGHT',
       ENDING: 'ENDING',

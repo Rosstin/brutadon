@@ -6,12 +6,11 @@
 'use strict';
 
 var GameConst = require('./GameConst');
+var GameMachine = require('./GameMachine');
 
 var registerIntentHandlers = function (intentHandlers, skillContext) {
     intentHandlers.WreckEmIntent = function (intent, session, response) {
         var intentId = GameConst.Intents.WRECK;
-
-        // this.emit(":tell", blah);
         response.tell('YEAH WRECK EM GOOD');
         GameMachine.processIntent(response);
 
@@ -40,10 +39,6 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
     intentHandlers.UnrecognizedIntent = function (intent, session, response) {
         var intentId = GameConst.Intents.CANT_UNDERSTAND;
         response.tell('WHAT?');
-    };
-
-    intentHandlers['AMAZON.HelpIntent'] = function (intent, session, response) {
-        response.tell('I need help too');
     };
 };
 exports.register = registerIntentHandlers;
