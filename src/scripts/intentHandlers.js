@@ -11,34 +11,32 @@ var GameMachine = require('./GameMachine');
 var registerIntentHandlers = function (intentHandlers, skillContext) {
     intentHandlers.WreckEmIntent = function (intent, session, response) {
         var intentId = GameConst.Intents.WRECK;
-        response.tell('YEAH WRECK EM GOOD');
-        GameMachine.processIntent(response);
-
+        GameMachine.processIntent(intentId, response);
     };
 
     intentHandlers.PumpItUpIntent = function (intent, session, response) {
         var intentId = GameConst.Intents.PUMP;
-        response.tell('SUNS OUT GUNS OUT');
+        GameMachine.processIntent(intentId, response);
     };
 
     intentHandlers.YouGotThisIntent = function (intent, session, response) {
         var intentId = GameConst.Intents.GOT_THIS;
-        response.tell('I BELIEVE IN YOU');
+        GameMachine.processIntent(intentId, response);
     };
 
     intentHandlers.HoldBackIntent = function (intent, session, response) {
         var intentId = GameConst.Intents.HOLD_BACK;
-        response.tell('NOOOOO');
+        GameMachine.processIntent(intentId, response);
     };
 
     intentHandlers.NoInPutIntent = function (intent, session, response) {
         var intentId = GameConst.Intents.NO_RESPONSE;
-        response.tell('YOUR SILENCE IS HEARTBREAKING');
+        GameMachine.processIntent(intentId, response);
     };
 
     intentHandlers.UnrecognizedIntent = function (intent, session, response) {
         var intentId = GameConst.Intents.CANT_UNDERSTAND;
-        response.tell('WHAT?');
+        GameMachine.processIntent(intentId, response);
     };
 };
 exports.register = registerIntentHandlers;

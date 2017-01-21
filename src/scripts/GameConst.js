@@ -15,12 +15,12 @@ var GameConst = {
     },
 
     Intents: {
-      WRECK: 0,
-      PUMP: 1,
-      GOT_THIS: 2,
-      HOLD_BACK: 3,
-      NO_RESPONSE: 4,
-      CANT_UNDERSTAND: 5
+      WRECK: 'wreck',
+      PUMP: 'pump',
+      GOT_THIS: 'got',
+      HOLD_BACK: 'hold',
+      NO_RESPONSE: 'none',
+      CANT_UNDERSTAND: 'huh'
     }
 };
 

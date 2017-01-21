@@ -15,8 +15,8 @@ var GameData = {
   eventTimer: NaN,
 
   // event cache; needs to be loaded
-  tutorialEvents: [],
-  fightEvents: [],
+  tutorialEvents: require('./tutorial').tutorial,
+  fightEvents: require('./events1').events1,
 
   // game customization
   failureTolerance: 1000

@@ -1,16 +1,30 @@
 // welcome text
 // tutorial text (pull out first event)
 
-var processIntent = function(intentId) {
-    var event = GameData.currentEvent;
-    var responseId = event.actions[intentId];
-    var response = event.responses[responseId];
-    var responsePrompt = response.prompt;
-    var isSuccess = response.isSuccess;
-
+var processIntent = function(intentKey, response) {
     clearTimeout(GameData.timer);
 
-    GameMachine.intentResponseCallback(isSuccess);
+    var event = GameData.currentEvent;
+    var responseNumKey = event[intentKey];
+
+    var responsePrompt = "";
+    var isSuccess = false;
+
+    if (intentKey === GameConst.Intents.CANT_UNDERSTAND) {
+        // don't even handle for now
+    } else {
+        // TODO validate this JSON blob
+        if (responseNumKey) {
+            responsePrompt = event[responseNumKey + "t"];
+            isSuccess = event[responseNumKey + "s"] === "1";
+
+            response.tell(responsePrompt);
+
+            if (GameMachine.intentResponseCallback) {
+                GameMachine.intentResponseCallback(isSuccess);
+            }
+        }
+    }
 };
 
 var setupState = function(response) {
@@ -18,15 +32,17 @@ var setupState = function(response) {
 
     // welcome to game
     response.tell("Welcome to GET EM BRUTEDON, a heartwarming tale of friendship and destroying cities");
-    return GameConst.States.TUTORIAL;
+
+    GameMachine.changeState(GameConst.States.TUTORIAL);
 };
 
 var tutorialResponse = function(isSuccess) {
     if (isSuccess) {
         GameData.tutorialEvents.shift();
+        GameMachine.changeState(GameConst.States.TUTORIAL);
     }
     if (GameData.tutorialEvents.isEmpty()) {
-        GameData.currentState = GameConst.States.FIGHT;
+        GameMachine.changeState(GameConst.States.FIGHT);
     }
 };
 
@@ -42,26 +58,28 @@ var tutorialState = function(response) {
     // set up game state
     GameData.timer = setTimeout(function () {
         // simulate no-response intent
-        var isSuccess = processIntent(NO_RESPONSE);
-        tutorialResponse(isSuccess);
+        processIntent(NO_RESPONSE);
     }, 10*1000);
 };
 
 var GameMachine = {
     processIntent: processIntent,
 
-    runloop: function (response) {
-      var currentState = GameData.currentState;
+    changeState: function (newState, response) {
+      GameData.currentState = newState;
 
-      switch (GameData.currentState) {
+      switch (newState) {
           case GameConst.States.SETUP:
-              GameData.currentState = setupState(response);
+              setupState(response);
               break;
           case GameConst.States.TUTORIAL:
-              GameData.currentState = tutorialState(response);
-          default:;
+              tutorialState(response);
+          default:
+               // ideally shouldn't happen
+              console.log("NO STATE");
+              // exit the game or whatever
       }
     }
-}
+};
 
 module.exports = GameMachine;
