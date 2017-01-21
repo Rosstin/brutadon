@@ -8,6 +8,9 @@
  */
 
 var Alexa = require('alexa-sdk');
+var d3 = require('d3');
+
+var events1 = require('./events1').events1;
 
 var states = {
     STARTMODE: '_STARTMODE',                // Prompt the user to start or restart the game.
@@ -16,8 +19,9 @@ var states = {
 };
 
 
+
 // Questions
-var nodes = [{ "node": 1, "message": "Do you think people are complete crap", "yes": 3, "no": 2 },
+var nodes = [{ "node": 1, "message": "Screw you hippie", "yes": 3, "no": 2 },
              { "node": 2, "message": "Do you like caring for others", "yes": 4, "no": 5 },
              { "node": 3, "message": "Would you like to work during the day", "yes": 6, "no": 7 },
              { "node": 4, "message": "Can you stand the sight of blood", "yes": 8, "no": 9 },
@@ -84,16 +88,34 @@ var START_NODE = 1;
 
 // Called when the session starts.
 exports.handler = function (event, context, callback) {
-    var alexa = Alexa.handler(event, context);
-    alexa.registerHandlers(newSessionHandler, startGameHandlers, askQuestionHandlers, descriptionHandlers);
-    alexa.execute();
+    // maybe we could load the data here
+
+    // can it access this?
+    d3.tsv("BRUTADON_EVENTS - Sheet1.tsv", function(data) {
+        // do something with the data
+        var alexa = Alexa.handler(event, context);
+        //alexa.dynamoDBTableName = 'elephant';
+        alexa.registerHandlers(newSessionHandler, startGameHandlers, askQuestionHandlers, descriptionHandlers);
+        alexa.execute();
+    });
+
 };
 
 // set state to start up and  welcome the user
 var newSessionHandler = {
   'LaunchRequest': function () {
-    this.handler.state = states.STARTMODE;
-    this.emit(':ask', welcomeMessage);//, repeatWelcomeMessage);
+
+    //d3.tsv("BRUTADON_EVENTS - Sheet1.tsv", function(data) {
+        this.handler.state = states.STARTMODE;
+        this.emit(':ask', events1[0].prompt);//, repeatWelcomeMessage);
+        //this.emit(':ask', this.dynamoDBTableName);//, repeatWelcomeMessage);
+    //}
+
+    //this.events[];
+
+    //helper.startWithData(this);
+    //console.log('hellow world');
+    //console.log(this.events);
   },'AMAZON.HelpIntent': function () {
     this.handler.state = states.STARTMODE;
     this.emit(':ask', helpMessage, helpMessage);
@@ -228,6 +250,24 @@ var descriptionHandlers = Alexa.CreateStateHandler(states.DESCRIPTIONMODE, {
 // --------------- Helper Functions  -----------------------
 
 var helper = {
+
+    startWithData: function(context) {
+        
+
+
+
+        context.handler.state = states.STARTMODE;
+        context.emit(':ask', welcomeMessage);//, repeatWelcomeMessage);
+
+        //context.emit(':ask', context.events[0].prompt);//, repeatWelcomeMessage);
+
+
+        // get the speech for the child node
+        //var description = helper.getDescriptionForNode(context.attributes.currentNode);
+        //var message = description + ', ' + repeatWelcomeMessage;
+
+        //context.emit(':ask', message, message);
+    },
 
     // gives the user more information on their final choice
     giveDescription: function (context) {
@@ -382,3 +422,5 @@ var helper = {
         return true;
     }
 };
+
+
