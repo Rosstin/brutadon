@@ -11,3 +11,7 @@ AMAZON.StartOverIntent start over
 AMAZON.StartOverIntent restart
 AMAZON.StartOverIntent start again
 AMAZON.StartOverIntent play again
+AMAZON.WreckEmIntent wreck em
+AMAZON.PumpItUpIntent pump it up
+AMAZON.YouGotThisIntent you got this
+AMAZON.HoldBackIntent hold back

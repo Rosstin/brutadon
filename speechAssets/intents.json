@@ -2,22 +2,41 @@
 	"intents": [{
       "intent": "AMAZON.YesIntent",
       "slots": []
-    }, {
+    },
+		{
       "intent": "AMAZON.NoIntent",
+      "slots": []
+    }, {
+      "intent": "AMAZON.WreckEmIntent",
+      "slots": []
+    }, {
+      "intent": "AMAZON.PumpItUpIntent",
+      "slots": []
+    }, {
+      "intent": "AMAZON.YouGotThisIntent",
+      "slots": []
+    }, {
+      "intent": "AMAZON.HoldBackIntent",
+      "slots": []
+    }, {
+      "intent": "AMAZON.NoInPutIntent",
+      "slots": []
+    }, {
+      "intent": "AMAZON.CantUnderstandIntent",
       "slots": []
     }, {
 		"intent": "AMAZON.HelpIntent",
 		"slots": []
-	}, {
-		"intent": "AMAZON.StopIntent",
-		"slots": []
-	}, {
-		"intent": "AMAZON.CancelIntent",
-		"slots": []
-	},{
-		"intent": "AMAZON.StartOverIntent",
-		"slots": []
-	}, {
+		}, {
+			"intent": "AMAZON.StopIntent",
+			"slots": []
+		}, {
+			"intent": "AMAZON.CancelIntent",
+			"slots": []
+		},{
+			"intent": "AMAZON.StartOverIntent",
+			"slots": []
+		}, {
 		"intent": "DescriptionIntent",
 		 "slots": [
         {
