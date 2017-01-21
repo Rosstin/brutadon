@@ -94,7 +94,16 @@ var runloop = function () {
 };
 
 var main = function () {
-    // load tutorials somehow
+    var loadedFightEventsCallback = function (fightData) {
+        gameStates.fightEvents = [];
+    }
+    var loadedTutorialEventsCallback = function (tutorialData) {
+        gameStates.tutorialEvents = [];
+    }
+
+    loadTutorials(function (tutorialData) {
+
+    })
     runloop();
 
     console.log("Thanks for playing YOU GOT THIS BRUTADON");
