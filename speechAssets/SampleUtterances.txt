@@ -4,6 +4,7 @@ DescriptionIntent {Description}
 DescriptionIntent can you {Description}
 DescriptionIntent tell me about that
 DescriptionIntent description please
+UnrecognizedIntent ThisIsPurposlyNonSense
 AMAZON.StopIntent stop
 AMAZON.StopIntent off
 AMAZON.StopIntent shut up
@@ -11,7 +12,8 @@ AMAZON.StartOverIntent start over
 AMAZON.StartOverIntent restart
 AMAZON.StartOverIntent start again
 AMAZON.StartOverIntent play again
-AMAZON.WreckEmIntent wreck em
-AMAZON.PumpItUpIntent pump it up
-AMAZON.YouGotThisIntent you got this
-AMAZON.HoldBackIntent hold back
+WreckEmIntent wreck em
+PumpItUpIntent pump it up
+YouGotThisIntent you got this
+HoldBackIntent hold back
+BeginIntent begin
