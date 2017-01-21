@@ -1,10 +1,7 @@
 /**
- * This sample demonstrates a simple skill built with the Amazon Alexa Skills Kit.
- * The Intent Schema, Custom Slots, and Sample Utterances for this skill, as well as
- * testing instructions are located at http://amzn.to/1LzFrj6
+ *  YOU GOT THIS BRUTADON
  *
- * For additional samples, visit the Alexa Skills Kit Getting Started guide at
- * http://amzn.to/1LGWsLG
+ *  Made for Global Game Jam 2017 @ Facebook MPK
  */
 
 var Alexa = require('alexa-sdk');
@@ -30,36 +27,56 @@ var gameData = {
   currentState = gameStates.TUTORIAL,
   numFailures = 0,
 
+  // event cache
+  tutorialEvents = [],
+  fightEvents = [],
+
   // game customization
   failureTolerance = 1000
 };
 
+var runEvent = function (event) {
+  // play event.prompt
+  // wait for 10 seconds
+  // detect intent somehow -- a handler?
+  // convert intent to int
+  var intentId = gameIntents.WRECK;
+
+  var responseId = event.actions[intentId];
+  var response = event.responses[responseId];
+  var responsePrompt = response.prompt;
+  var isSuccess = response.isSuccess;
+
+  // play response.prompt
+  return response.isSuccess;
+}
+
 var tutorialState = function () {
-    // get tutorial event from array
+    var event = gameData.tutorialEvents[0];
     var isSuccess = runEvent(event);
 
     if (isSuccess) {
-        //pop event
-    } else {
-        //repeat current event...somehow
+        // The player can only continue when they succeed at the tutorial event.
+        gameData.tutorialEvents.shift();
     }
 
-    // if no tutorial events left
-    gameData.currentState = gameStates.FIGHT;
+    if (gameData.tutorialEvents.length === 0) {
+        gameData.currentState = gameStates.FIGHT;
+    }
 };
 
 var fightState = function () {
-    // get tutorial event from array
+    var event = gameData.tutorialEvents[0];
     var isSuccess = runEvent(event);
 
     if (isSuccess) {
-        //pop event
-    } else {
-        //repeat current event...somehow
+        // The player can only continue when they succeed at the tutorial event.
+        gameData.tutorialEvents.shift();
     }
 
-    // if no tutorial events left
-    gameData.currentState = gameStates.FIGHT;
+    if (gameData.tutorialEvents.length === 0) {
+        gameData.currentState = gameStates.FIGHT;
+    }
 };
 
 var runloop = function () {
@@ -76,18 +93,9 @@ var runloop = function () {
     }
 };
 
- var runEvent = function (event) {
-    // play event.prompt
-    // wait for 10 seconds
-    // detect intent somehow -- a handler?
-    // convert intent to int
-    var intentId = gameIntents.WRECK;
+var main = function () {
+    // load tutorials somehow
+    runloop();
 
-    var responseId = event.actions[intentId];
-    var response = event.responses[responseId];
-    var responsePrompt = response.prompt;
-    var isSuccess = response.isSuccess;
-
-    // play response.prompt
-    return response.isSuccess;
- }
+    console.log("Thanks for playing YOU GOT THIS BRUTADON");
+}
