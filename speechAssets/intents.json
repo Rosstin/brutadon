@@ -7,22 +7,22 @@
       "intent": "AMAZON.NoIntent",
       "slots": []
     }, {
-      "intent": "AMAZON.WreckEmIntent",
+      "intent": "WreckEmIntent",
       "slots": []
     }, {
-      "intent": "AMAZON.PumpItUpIntent",
+      "intent": "PumpItUpIntent",
       "slots": []
     }, {
-      "intent": "AMAZON.YouGotThisIntent",
+      "intent": "YouGotThisIntent",
       "slots": []
     }, {
-      "intent": "AMAZON.HoldBackIntent",
+      "intent": "HoldBackIntent",
       "slots": []
     }, {
-      "intent": "AMAZON.NoInPutIntent",
+      "intent": "NoInPutIntent",
       "slots": []
     }, {
-      "intent": "AMAZON.CantUnderstandIntent",
+      "intent": "UnrecognizedIntent",
       "slots": []
     }, {
 		"intent": "AMAZON.HelpIntent",

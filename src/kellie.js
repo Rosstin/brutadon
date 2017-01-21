@@ -7,10 +7,12 @@
 var Alexa = require('alexa-sdk');
 
 var gameStates = {
-  TUTORIAL: 0,
-  FIGHT: 1,
-  ENDING: 2,
-  FINISH: 3
+  SETUP: 0,
+  LOADING: 1,
+  TUTORIAL: 2,
+  FIGHT: 3,
+  ENDING: 4,
+  FINISH: 5
 };
 
 var gameIntents = {
@@ -24,7 +26,7 @@ var gameIntents = {
 
 var gameData = {
   // variable state
-  currentState = gameStates.TUTORIAL,
+  currentState = gameStates.SETUP,
   numFailures = 0,
 
   // event cache
@@ -81,6 +83,12 @@ var fightState = function () {
 
 var runloop = function () {
     switch(gameData.currentState) {
+       case gameStates.SETUP:
+          setupState();
+          break;
+       case gameStates.LOADING:
+          // still loading?
+          break;
        case gameStates.TUTORIAL:
           tutorialState();
           break;
@@ -89,22 +97,20 @@ var runloop = function () {
           break;
        case gameStates.ENDING:
        case gameStates.FINISH:
-           return;
     }
 };
 
-var main = function () {
-    var loadedFightEventsCallback = function (fightData) {
+var setupState = function () {
+    gameData.currentState = gameStates.LOADING;
+
+    d3.tsv("BRUTADON_EVENTS - Sheet1.tsv", function (data) {
         gameStates.fightEvents = [];
-    }
-    var loadedTutorialEventsCallback = function (tutorialData) {
-        gameStates.tutorialEvents = [];
-    }
 
-    loadTutorials(function (tutorialData) {
+        d3.tsv("BRUTADON_EVENTS - Sheet1.tsv", function (data) {
+            gameStates.tutorialEvents = [];
 
-    })
-    runloop();
-
-    console.log("Thanks for playing YOU GOT THIS BRUTADON");
+            gameData.currentState = gameStates.TUTORIAL;
+            console.log("YOU GOT THIS BRUTADON");
+        }
+    });
 }
