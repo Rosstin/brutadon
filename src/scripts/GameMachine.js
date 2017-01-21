@@ -104,7 +104,7 @@ var setupState = function () {
 
             gameData.currentState = gameStates.TUTORIAL;
             console.log("YOU GOT THIS BRUTADON");
-        }
+        });
     });
 }
 
