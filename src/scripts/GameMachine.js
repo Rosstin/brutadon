@@ -52,7 +52,7 @@ var tutorialIntentState = function(intentKey) {
     } else {
         if (responseNumKey) {
             responsePrompt = event["t" + responseNumKey];
-            isSuccess = event["s" + responseNumKey] === "1";
+            isSuccess = event["s" + responseNumKey] == "1";
         }
     }
 
@@ -87,7 +87,7 @@ var fightIntentState = function(intentKey) {
     } else {
         if (responseNumKey) {
           responsePrompt = event["t"+ responseNumKey];
-          isSuccess = event["s" + responseNumKey] === "1";
+          isSuccess = event["s" + responseNumKey] == "1";
         }
     }
 
