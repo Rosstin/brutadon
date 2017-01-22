@@ -16,18 +16,18 @@ var setupState = function() {
                       " If you would like to skip the tutorial, shout WRECK um BRUTADON.";
     }
 
-    return /*welcome text*/ "short welcome";
+    return welcomeText;
 };
 
 var setupIntentState = function(intentId) {
     switch (intentId) {
-        case GameConst.States.PUMP:
+        case GameConst.Intents.PUMP:
             return GameMachine.getResponseForNewState(GameConst.States.TUTORIAL);
-        case GameConst.States.WRECK:
+        case GameConst.Intents.WRECK:
             return GameMachine.getResponseForNewState(GameConst.States.FIGHT);
         default:
             GameData.repeatWelcome = true;
-            return GameMachine.getResponseForNewState(GameConst.States.WELCOME);
+            return GameMachine.getResponseForNewState(GameConst.States.SETUP);
     }
 };
 
@@ -39,7 +39,7 @@ var tutorialState = function() {
     return tutorialEvent.prompt;
 };
 
-var tutorialIntentState = function(intentId) {
+var tutorialIntentState = function(intentKey) {
     // TODO abstract this out
     var event = GameData.currentEvent;
     var responseNumKey = event[intentKey];
@@ -51,6 +51,7 @@ var tutorialIntentState = function(intentId) {
     } else {
         // TODO validate this JSON blob
         if (responseNumKey) {
+            return responseNumKey + "t";
             responsePrompt = event[responseNumKey + "t"];
             isSuccess = event[responseNumKey + "s"] === "1";
         }
@@ -80,19 +81,19 @@ var GameMachine = {
     },
 
     getResponseForNewState: function (newState) {
-      GameData.currentState = newState;
+        GameData.currentState = newState;
 
-      switch (newState) {
-          case GameConst.States.SETUP:
-              return setupState();
-          case GameConst.States.TUTORIAL:
-              return tutorialState();
-          default:
-               // ideally shouldn't happen
-              console.log("NO STATE");
-              // exit the game or whatever
-      }
-      return "derpderp";
+        switch (newState) {
+            case GameConst.States.SETUP:
+                return setupState();
+            case GameConst.States.TUTORIAL:
+                return tutorialState();
+            default:
+                 // ideally shouldn't happen
+                console.log("NO STATE");
+                // exit the game or whatever
+        }
+        return "Cannot find state for " + newState + ".";
     }
 };
 
