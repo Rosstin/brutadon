@@ -69,7 +69,8 @@ var fightState = function() {
     var fightEvent = GameData.fightEvents[GameData.fightIndex];
     GameData.currentEvent = fightEvent;
     GameData.fightIndex++;
-    return "<break time=\"750ms\"/> " + fightEvent.prompt;
+    //return "<break time=\"750ms\"/> " + fightEvent.prompt;
+    return " <audio src='https://s3.amazonaws.com/brutadonsounds/output.mp3'/> " + fightEvent.prompt;
 };
 
 var fightIntentState = function(intentKey) {
