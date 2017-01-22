@@ -1,6 +1,10 @@
 // welcome text
 // tutorial text (pull out first event)
 
+var GameData = require('./GameData');
+var GameConst = require('./GameConst');
+
+
 var processIntent = function(intentKey, response) {
     clearTimeout(GameData.timer);
 
@@ -31,7 +35,9 @@ var setupState = function(response) {
     GameMachine.intentResponseCallback = function(intentId) {};
 
     // welcome to game
+    response.tell("HELLO HELLO HELLO");
     response.tell("Welcome to GET EM BRUTEDON, a heartwarming tale of friendship and destroying cities");
+    response.tell("Thank you for playing");
 
     GameMachine.changeState(GameConst.States.TUTORIAL);
 };

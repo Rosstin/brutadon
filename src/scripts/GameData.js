@@ -12,7 +12,7 @@ var GameData = {
   currentState: GameConst.States.SETUP,
   numFailures: 0,
 
-  eventTimer: NaN,
+  timer: NaN,
 
   // event cache; needs to be loaded
   tutorialEvents: require('./../tutorial').tutorial,
