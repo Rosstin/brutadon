@@ -16,8 +16,7 @@ var setupState = function() {
                       " If you would like to skip the tutorial, shout WRECK um BRUTADON.";
     }
 
-    return "short welcome text";
-    //return welcomeText;
+    return welcomeText;
 };
 
 var setupIntentState = function(intentId) {
@@ -85,8 +84,10 @@ var fightIntentState = function(intentKey) {
         isSuccess = event["s" + responseNumKey] == "1";
     }
 
+    var soundFile = "<audio src='https://s3.amazonaws.com/brutadonsounds/goodchoice.mp3'/> "
     if (!isSuccess) {
         GameData.numFailures++;
+        soundFile = "<audio src='https://s3.amazonaws.com/brutadonsounds/failbrutadon.mp3'/> ";
     }
 
     var newState = GameConst.States.FIGHT;
@@ -95,7 +96,7 @@ var fightIntentState = function(intentKey) {
         newState = GameConst.States.ENDING;
     }
 
-    return responsePrompt + " " + GameMachine.getResponseForNewState(newState);
+    return soundFile + responsePrompt + " " + GameMachine.getResponseForNewState(newState);
 };
 
 var endingState = function() {
