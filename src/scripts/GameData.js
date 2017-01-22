@@ -15,6 +15,7 @@ var GameData = {
       this.numFailures = 0;
 
       this.tutorialEvents = require('./../tutorial').tutorial;
+      this.tutorialIndex = 0;
 
       // randomize the fight events.
       var fightEvents = require('./../events1').events1;
@@ -25,6 +26,7 @@ var GameData = {
           fightEvents[j] = temp;
       }
       this.fightEvents = fightEvents;
+      this.fightIndex = 0;
 
       this.failureTolerance = 1000;
   }

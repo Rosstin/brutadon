@@ -56,6 +56,12 @@ AlexaSkill.prototype.eventHandlers = {
         var intent = intentRequest.intent,
             intentName = intentRequest.intent.name,
             intentHandler = this.intentHandlers[intentName];
+
+        if (!intentHandler) {
+            intentName = 'UnrecognizedIntent';
+            intentHandler = this.intentHandlers[intentName];
+        }
+
         if (intentHandler) {
             console.log('dispatch intent = ' + intentName);
             intentHandler.call(this, intent, session, response);

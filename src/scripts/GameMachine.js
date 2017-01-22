@@ -35,7 +35,7 @@ var tutorialState = function() {
     if (GameData.repeatTutorial) {
         return "";
     }
-    var tutorialEvent = GameData.tutorialEvents[0];
+    var tutorialEvent = GameData.tutorialEvents[GameData.tutorialIndex];
     GameData.currentEvent = tutorialEvent;
     return tutorialEvent.prompt;
 };
@@ -58,19 +58,20 @@ var tutorialIntentState = function(intentKey) {
 
     if (isSuccess) {
         GameData.repeatTutorial = false;
-        GameData.tutorialEvents.shift();
+        GameData.tutorialIndex++;
     } else {
         GameData.repeatTutorial = true;
     }
-    if (!GameData.tutorialEvents.length) {
+    if (GameData.tutorialIndex >= GameData.tutorialEvents.length) {
         return responsePrompt + " " + GameMachine.getResponseForNewState(GameConst.States.FIGHT);
     }
     return responsePrompt + " " + GameMachine.getResponseForNewState(GameConst.States.TUTORIAL);
 };
 
 var fightState = function() {
-    var fightEvent = GameData.fightEvents.shift();
+    var fightEvent = GameData.fightEvents[GameData.fightIndex];
     GameData.currentEvent = fightEvent;
+    GameData.fightIndex++;
     return fightEvent.prompt;
 };
 
@@ -97,7 +98,7 @@ var fightIntentState = function(intentKey) {
     if (GameData.numFailures > GameData.failureTolerance) {
         return "OH NO DEAD.";
     }
-    if (!GameData.fightEvents.length) {
+    if (GameData.fightIndex >= GameData.fightEvents.length) {
         return "OH NO OUT OF FIGHT.";
     }
 
