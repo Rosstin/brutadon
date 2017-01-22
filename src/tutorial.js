@@ -1,26 +1,5 @@
 var tutorial = [
   {
-    "prompt": "Welcome to, You Got This Brutadon, a game where you must use your voice in the name of true friendship. Make sure Alexa can hear you clearly, and make sure no one will be disturbed by your cacophonous shouting. If this is your first time playing, You Got This Brutadon, shout, PUMP IT UP BRUTADON, to begin the tutorial. If you would like to skip the tutorial, shout WRECK um BRUTADON.",
-    "wreck": 2,
-    "pump": 1,
-    "got": 3,
-    "hold": 3,
-    "none": 3,
-    "huh": 3,
-    "t1": "GOTO TUTORIAL",
-    "s1": "",
-    "t2": "SKIP TUTORIAL AND GO STRAIGHT TO CORE GAME LOOP",
-    "s2": "",
-    "t3": "If this is your first time playing, You Got This Brutadon, shout, PUMP IT UP BRUTADON, to begin the tutorial. If you would like to skip the tutorial, shout WRECK um BRUTADON.",
-    "s3": "",
-    "t4": "",
-    "s4": "",
-    "t5": "",
-    "s5": "",
-    "t6": "",
-    "s6": ""
-  },
-  {
     "prompt": "We begin long ago, in middle school, when you and Brutadon first became fast friends. Brutadon was the only kaijew in your sixth grade class, and he towered seven stories above all the other students. When they made fun of him, you used to shout, wreckum, Brutadon!",
     "wreck": 1,
     "pump": 2,
