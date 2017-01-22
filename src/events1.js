@@ -17,7 +17,7 @@ var events1 = [
     "s4": 0,
     "t5": "Brutadon is so scared! He wails and roars under the bank while Gromyulox roasts him with radioactive fire!",
     "s5": 0,
-    "t6": "Brutadon can't hear you over the sound of all these screaming financiers! Speak more clearly!",
+    "t6": "Brutadon can't hear you over the sound of all these screaming financiers!",
     "s6": ""
   },
   {
@@ -34,7 +34,7 @@ var events1 = [
     "s2": 1,
     "t3": "Brutadon recoils, and Gromyulox closes in for a second punch. KABLAMMO! He knocks out one of Brutadon's extra tongues!",
     "s3": 0,
-    "t4": "Brutadon can't hear you over his howls of pain! Speak more clearly!",
+    "t4": "Brutadon can't hear you over his howls of pain!",
     "s4": "",
     "t5": "",
     "s5": "",
@@ -55,7 +55,7 @@ var events1 = [
     "s2": 1,
     "t3": "Brutadon is too confused to solve this problem without your help! He hurls his cell phone into the sea. Oh no! That's going to affect his maximum return!",
     "s3": "",
-    "t4": "Brutadon can't hear you over the voice of his tax preparer! Speak more clearly!",
+    "t4": "Brutadon can't hear you over the voice of his tax preparer!",
     "s4": "",
     "t5": "",
     "s5": "",
@@ -80,7 +80,7 @@ var events1 = [
     "s4": 0,
     "t5": "Brutadon waits and waits for emotional support from you during this time of need, but it never comes. A single steaming tear rolls down his scaly cheek, and he knows that he's an imposter, just like he always feared.",
     "s5": 0,
-    "t6": "Brutadon can't hear you over the sound of his churning, imposter thoughts. Speak more clearly!",
+    "t6": "Brutadon can't hear you over the sound of his churning, imposter thoughts.",
     "s6": ""
   },
   {
@@ -99,7 +99,7 @@ var events1 = [
     "s3": 0,
     "t4": "Without your guidance, Brutadon just does what he's most comfortable with: helpless flailing and stomping! None of his hits connectl. Gromyulox cackles in glee!",
     "s4": 0,
-    "t5": "Brutadon can't hear you over the sound of Gromyulox's shrieking! Speak more clearly!",
+    "t5": "Brutadon can't hear you over the sound of Gromyulox's shrieking!",
     "s5": "",
     "t6": "",
     "s6": ""
@@ -122,7 +122,7 @@ var events1 = [
     "s4": 1,
     "t5": "Brutadon panics and freaks out and just crushes the entire wedding! Poor guy! He probably could have used some guidance there!",
     "s5": 0,
-    "t6": "Brutadon can't year you over the sound of the wedding band! Speak more clearly!",
+    "t6": "Brutadon can't year you over the sound of the wedding band!",
     "s6": ""
   },
   {
@@ -143,7 +143,7 @@ var events1 = [
     "s4": 0,
     "t5": "Brutadon doesn't know what to do! He just stands there and lets Gromyulox chew all over his poor arm! Ouch! He howls miserably at the sky!",
     "s5": 0,
-    "t6": "Brutadon can't hear you over the sound of his muscles getting all chewed up! Speak more clearly!",
+    "t6": "Brutadon can't hear you over the sound of his muscles getting all chewed up!",
     "s6": ""
   },
   {
@@ -162,7 +162,7 @@ var events1 = [
     "s3": 1,
     "t4": "Brutadon freaks out and struggles! But the more he struggles, the more water he swallows! He inhales fifty million gallons of river, extinguishing three of his five radioactive lungs! Oh no!",
     "s4": 0,
-    "t5": "Brutadon can't hear you over the water churning in his ears! Speak more clearly!",
+    "t5": "Brutadon can't hear you over the water churning in his ears!",
     "s5": "",
     "t6": "",
     "s6": ""
@@ -311,7 +311,7 @@ var events1 = [
     "s4": 0,
     "t5": "Brutadon tries to muddle through the pain, but Gromyulox notices his injury! He stomps down, hard, on Brutadon's toe. Brutadon's scream of pain shatters all the windows on the west side of town!",
     "s5": 0,
-    "t6": "Brutadon can't hear you over the sound of his own sniffles. Speak more clearly!",
+    "t6": "Brutadon can't hear you over the sound of his own sniffles.",
     "s6": ""
   },
   {
@@ -332,7 +332,7 @@ var events1 = [
     "s4": 1,
     "t5": "Without anyone to tell him it's a bad idea, Brutadon goes to find these delicious paninis. Gromyulox uses this opportunity to stab Brutadon in the butt with one of his venom tusks! Brutadon roars in agony!",
     "s5": 0,
-    "t6": "Brutadon can't hear you over the chorus of  his subconscious as it demands paninis. Speak more clearly!",
+    "t6": "Brutadon can't hear you over the chorus of  his subconscious as it demands paninis.",
     "s6": ""
   },
   {
@@ -351,7 +351,7 @@ var events1 = [
     "s3": 1,
     "t4": "Brutadon isn't sure what to do, so he just flops down on the ground, and cries, while Gromyulox hits him with the electrical railroad. YAOWCH!",
     "s4": 0,
-    "t5": "Brutadon can't hear you over the sound of the crackling electrical railroad whip. Speak more clearly!",
+    "t5": "Brutadon can't hear you over the sound of the crackling electrical railroad whip.",
     "s5": "",
     "t6": "",
     "s6": ""
@@ -374,7 +374,7 @@ var events1 = [
     "s4": 1,
     "t5": "Brutadon isn't sure what to do, so he hesitates. Wrong decision! The cellphone tower spears him in the side! Sizzling blood globs spray everywhere!",
     "s5": 0,
-    "t6": "Brutadon can't hear you over the sound of the deadly cell phone tower whistling through the air! Speak more clearly!",
+    "t6": "Brutadon can't hear you over the sound of the deadly cell phone tower whistling through the air!",
     "s6": ""
   },
   {
@@ -393,7 +393,7 @@ var events1 = [
     "s3": 1,
     "t4": "Brutadon jumps back, and dodges the swing. Inside the schoolbus, the children catch a glimpse of his glorious muscles rippling past the windows, and the terror in their hearts is calmed. As Gromyulox hurls them into the river, they die in peace. Good job Brutadon!",
     "s4": 1,
-    "t5": "Brutadon can't hear you over the sound of the screaming schoolchildren! Speak more clearly.",
+    "t5": "Brutadon can't hear you over the sound of the screaming schoolchildren!",
     "s5": "",
     "t6": "",
     "s6": ""
@@ -414,7 +414,7 @@ var events1 = [
     "s3": 0,
     "t4": "Brutadon lies flat on the ground in the park while Gromyulox sits on his back and bites his neck. This is not a winning strategy!",
     "s4": 0,
-    "t5": "Brutadon can't hear you over the sound of the ducks freaking out in the duck pond. Speak more clearly!",
+    "t5": "Brutadon can't hear you over the sound of the ducks freaking out in the duck pond.",
     "s5": "",
     "t6": "",
     "s6": ""
@@ -435,7 +435,7 @@ var events1 = [
     "s3": 0,
     "t4": "At the last second, Brutadon steps back, and the plane whizzes right through where he was standing! Close call! Everyone in the airplane is probably pooping their pants!",
     "s4": 1,
-    "t5": "Brutadon can't hear you over the sound of his fists hitting Gromyulox's body! Speak more clearly!",
+    "t5": "Brutadon can't hear you over the sound of his fists hitting Gromyulox's body!",
     "s5": "",
     "t6": "",
     "s6": ""
@@ -456,7 +456,7 @@ var events1 = [
     "s3": 1,
     "t4": "The cars smash into Brutadon's ankles! Wasteland knives, and twisted bits of re-bar, and splinters of car metal stab him! YAOWCH!",
     "s4": 0,
-    "t5": "Brutadon can't hear you over the sound of the car engines! Speak more clearly!",
+    "t5": "Brutadon can't hear you over the sound of the car engines!",
     "s5": "",
     "t6": "",
     "s6": ""
@@ -477,7 +477,7 @@ var events1 = [
     "s3": 1,
     "t4": "Brutadon stews in his bad memory of the rain. In his mind, the rain is his enemy. This makes him forget about his real enemy, Gromyulox. Gromyulox kicks him in his shins and it hurts a bunch.",
     "s4": 0,
-    "t5": "Brutadon can't hear you. The rain is getting pretty loud. Splish splash. You will have to talk more clearly.",
+    "t5": "Brutadon can't hear you. The rain is getting pretty loud. Splish splash.",
     "s5": "",
     "t6": "",
     "s6": ""
@@ -559,7 +559,7 @@ var events1 = [
     "s2": 0,
     "t3": "Brutadon just sits there and lets himself suffocate on a throatful of geese. Meanwhile, Gromyulox hits him over and over again, until he wobbles back and forth like a gym punching dummy. Good strategy! I mean, not a good strategy. This is sarcastic.",
     "s3": 0,
-    "t4": "Brutadon can't hear you over the sound of the geese cawing in his throat. Speak more clearly!",
+    "t4": "Brutadon can't hear you over the sound of the geese cawing in his throat.",
     "s4": "",
     "t5": "",
     "s5": "",
@@ -622,7 +622,7 @@ var events1 = [
     "s2": 0,
     "t3": "Brutadon just stands there, waving his arms around, hoping that maybe he is punching. While he's still wondering, Gromyulox decks him in the jaw. Oh, that's it. That's a punch.",
     "s3": 0,
-    "t4": "Brutadon can't hear you over the sound of his confused and terrified punch thoughts. Speak more clearly!",
+    "t4": "Brutadon can't hear you over the sound of his confused and terrified punch thoughts.",
     "s4": "",
     "t5": "",
     "s5": "",
@@ -687,7 +687,7 @@ var events1 = [
     "s3": 0,
     "t4": "Brutadon tries to dodge the delivery drones, but there's too many of them! He flails around helplessly in the cloud of Amazon merchandise while Gromyulox punches him in the gut!",
     "s4": 0,
-    "t5": "Brutadon can't hear you over the sound of clattering DVD cases! Speak more clearly!",
+    "t5": "Brutadon can't hear you over the sound of clattering DVD cases!",
     "s5": "",
     "t6": "",
     "s6": ""
@@ -750,7 +750,7 @@ var events1 = [
     "s3": 1,
     "t4": "Brutadon just lets the baby fall out of the sky and splatter all over the ground. To say this is extremely disturbing is an understatement! You can hear the child's mother screaming below!",
     "s4": 0,
-    "t5": "Brutadon can't hear you over the piercing sound of the screaming baby! Speak more clearly!",
+    "t5": "Brutadon can't hear you over the piercing sound of the screaming baby!",
     "s5": "",
     "t6": "",
     "s6": ""
@@ -769,7 +769,7 @@ var events1 = [
     "s2": 0,
     "t3": "Taking your silence for disapproval, Brutadon does not participate in the push up contest. He mutters an unhappy growl as Gromyulox does push up after push up. Push ups are Brutadon's favorite exercise because Brutadon has 7 arms. He probably could have crushed Gromyulox in a push up contest, but instead the only thing that is crushed is Brutadon's spirit.",
     "s3": 0,
-    "t4": "Brutadon didn't catch that. Gromyulox's push ups continue unchallenged. Speak more clearly.",
+    "t4": "Brutadon didn't catch that. Gromyulox's push ups continue unchallenged.",
     "s4": "",
     "t5": "",
     "s5": "",
@@ -794,7 +794,7 @@ var events1 = [
     "s4": 1,
     "t5": "Brutadon freezes in confusion as the lava surrounds him. Soon his feet are trapped under rapidly-cooling rock! Gromyulox smacks him a few times with the nearest belltower. Ouch!",
     "s5": 0,
-    "t6": "Brutadon can't hear you over the hiss of bubbling lava! Speak more clearly.",
+    "t6": "Brutadon can't hear you over the hiss of bubbling lava!",
     "s6": ""
   },
   {
@@ -811,7 +811,7 @@ var events1 = [
     "s2": 0,
     "t3": "Brutadon gingerly extracts himself from the rubble, avoiding destroying any more sculptures. Phew! Most of the museum is unharmed, and the city's cultural heritage is saved.",
     "s3": 1,
-    "t4": "Brutadon can't hear you over the sound of the emergency alarms going off in the museum. Speak more clearly.",
+    "t4": "Brutadon can't hear you over the sound of the emergency alarms going off in the museum.",
     "s4": "",
     "t5": "",
     "s5": "",
@@ -832,7 +832,7 @@ var events1 = [
     "s2": 1,
     "t3": "Brutadon isn't sure how to deal with dogs! He freaks out, and the dogs climb all over his body, biting him and pooping and peeing on him! Oh no, he's breaking out in hives! Brutadon is allergic to dogs!",
     "s3": 0,
-    "t4": "Brutadon can't hear you over the sound of all these barking doggos! Speak more clearly!",
+    "t4": "Brutadon can't hear you over the sound of all these barking doggos!",
     "s4": 0,
     "t5": "",
     "s5": "",
@@ -855,7 +855,7 @@ var events1 = [
     "s3": 0,
     "t4": "Brutadon just stands there and watches as a whole zoo of lions all jump on Gromyulox at once! But Gromyulox is too powerful, he smashes the lions, killing an entire pride in one blow! As he stands up, streaming with lion blood, Brutadon is very intimidated!",
     "s4": 0,
-    "t5": "Brutadon cannot hear you over the roaring of all these lions! Speak more clearly.",
+    "t5": "Brutadon cannot hear you over the roaring of all these lions!",
     "s5": "",
     "t6": "",
     "s6": ""
@@ -874,7 +874,7 @@ var events1 = [
     "s2": 1,
     "t3": "Brutadon just watches in silence as Gromyulox stomps all over the sports fans, destroying their cars and turning their bodies into paste. This makes Brutadon extremely sad!",
     "s3": 0,
-    "t4": "Brutadon can't hear you over the sound of these jeering sports fans. Speak more clearly!",
+    "t4": "Brutadon can't hear you over the sound of these jeering sports fans.",
     "s4": "",
     "t5": "",
     "s5": "",
@@ -895,7 +895,7 @@ var events1 = [
     "s2": 0,
     "t3": "Brutadon stays back! Gromyulox starts to perform a number of fancy tricks with his switchblade, until he makes a mistake, and cuts himself on the hand, like a moron! Brutadon chuckles in glee!",
     "s3": 1,
-    "t4": "Brutadon can't hear you over the snick-snick-snick sound of Gromyulox's switchblade! Speak more clearly!",
+    "t4": "Brutadon can't hear you over the snick-snick-snick sound of Gromyulox's switchblade!",
     "s4": "",
     "t5": "",
     "s5": "",
@@ -916,7 +916,7 @@ var events1 = [
     "s2": 1,
     "t3": "Brutadon watches passively as Gromyulox explodes his nuke over downtown, flattening many buildings and killing millions of people! Wow, Brutadon feels terrible!",
     "s3": 0,
-    "t4": "Brutadon can't hear you over the sound of the blood pumping in his ears! Speak more clearly!",
+    "t4": "Brutadon can't hear you over the sound of the blood pumping in his ears!",
     "s4": "",
     "t5": "",
     "s5": "",
@@ -960,7 +960,7 @@ var events1 = [
     "s3": 1,
     "t4": "Brutadon, without your guidence, does not know how to fight underwater. Gromyulox, on the other hand, was born in the ocean. Molded by it. He didn't see the surface until he was already a very large kaijew indeed. He kicks Brutadon so hard that one of Brutadon's lungs collapses.",
     "s4": 0,
-    "t5": "Brutadon can't hear you. It might be because he's underwater, but if you speak more clearly he can probably still hear you.",
+    "t5": "Brutadon can't hear you. It might be because he's underwater.",
     "s5": "",
     "t6": "",
     "s6": ""
@@ -983,7 +983,7 @@ var events1 = [
     "s4": 1,
     "t5": "Brutadon, absent your input, continues unabated. He punches Gromyulox. Whammo. Gromyulox punches back. Whammo. But this time, Brutadon is really on the ropes. Gromyulox comes in for a double whammo follow up and Brutadon slumps his shoulders. He has lost this round.",
     "s5": 0,
-    "t6": "Brutadon didn't catch that. His head is addled from the many punches that it has received. Try speaking more clearly.",
+    "t6": "Brutadon didn't catch that. His head is addled from the many punches that it has received.",
     "s6": ""
   },
   {
@@ -1002,7 +1002,7 @@ var events1 = [
     "s3": 1,
     "t4": "Your lack of emotional support deflates Brutadon. Gromyulox reaches his secret weapon, which is a bazooka, and shoots it right between Brutadon's eyes. Owowowowowowowowow.",
     "s4": 0,
-    "t5": "Brutadon didn't catch that. The ocean is a noisy mistress. What did you say?",
+    "t5": "Brutadon didn't catch that. The ocean is a noisy mistress.",
     "s5": "",
     "t6": "",
     "s6": ""
