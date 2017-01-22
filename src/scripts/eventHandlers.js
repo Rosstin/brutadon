@@ -5,7 +5,7 @@
  */
 'use strict';
 
-var GameData = require('./GameData');
+var GameConst = require('./GameConst');
 var GameMachine = require('./GameMachine');
 
 var registerEventHandlers = function (eventHandlers, skillContext) {
@@ -18,9 +18,7 @@ var registerEventHandlers = function (eventHandlers, skillContext) {
     eventHandlers.onLaunch = function (launchRequest, session, response) {
         //Speak welcome message and ask user questions
         //based on whether there are players or not.
-        console.log(GameData.currentState);
-        response.tell('Welcome to YOU GOT EM BRUTEDON, a heartwarming game about friendship and destroying cities');
-        GameMachine.changeState(GameConst.States.SETUP, response);
+        response.tell(GameMachine.changeState(GameConst.States.SETUP));
     };
 
     eventHandlers.onSessionEnded = function (sessionEndedRequest, session) {

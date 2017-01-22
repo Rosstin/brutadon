@@ -11,32 +11,33 @@ var GameMachine = require('./GameMachine');
 var registerIntentHandlers = function (intentHandlers, skillContext) {
     intentHandlers.WreckEmIntent = function (intent, session, response) {
         var intentId = GameConst.Intents.WRECK;
-        GameMachine.processIntent(intentId, response);
+
+        response.tell(GameMachine.processIntent(intentId));
     };
 
     intentHandlers.PumpItUpIntent = function (intent, session, response) {
         var intentId = GameConst.Intents.PUMP;
-        GameMachine.processIntent(intentId, response);
+        response.tell(GameMachine.processIntent(intentId));
     };
 
     intentHandlers.YouGotThisIntent = function (intent, session, response) {
         var intentId = GameConst.Intents.GOT_THIS;
-        GameMachine.processIntent(intentId, response);
+        response.tell(GameMachine.processIntent(intentId));
     };
 
     intentHandlers.HoldBackIntent = function (intent, session, response) {
         var intentId = GameConst.Intents.HOLD_BACK;
-        GameMachine.processIntent(intentId, response);
+        response.tell(GameMachine.processIntent(intentId));
     };
 
     intentHandlers.NoInPutIntent = function (intent, session, response) {
         var intentId = GameConst.Intents.NO_RESPONSE;
-        GameMachine.processIntent(intentId, response);
+        response.tell(GameMachine.processIntent(intentId));
     };
 
     intentHandlers.UnrecognizedIntent = function (intent, session, response) {
         var intentId = GameConst.Intents.CANT_UNDERSTAND;
-        GameMachine.processIntent(intentId, response);
+        response.tell(GameMachine.processIntent(intentId));
     };
 };
 exports.register = registerIntentHandlers;
