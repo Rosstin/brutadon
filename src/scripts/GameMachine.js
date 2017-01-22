@@ -72,7 +72,7 @@ var fightState = function() {
     var fightEvent = GameData.fightEvents[GameData.fightIndex];
     GameData.currentEvent = fightEvent;
     GameData.fightIndex++;
-    return fightEvent.prompt;
+    return "<break time=\'.75s\'/> " + fightEvent.prompt;
 };
 
 var fightIntentState = function(intentKey) {

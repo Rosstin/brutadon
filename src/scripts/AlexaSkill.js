@@ -160,9 +160,13 @@ Response.prototype = (function () {
 
     return {
         tell: function (speechOutput) {
+            var ssml_speech = {
+                type: 'SSML',
+                speech: "<speak>" + speechOutput + "</speak>"
+            };
             this._context.succeed(buildSpeechletResponse({
                 session: this._session,
-                output: speechOutput,
+                output: ssml_speech,
                 shouldEndSession: false /* true */
             }));
         },
