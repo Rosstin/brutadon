@@ -84,6 +84,11 @@ var fightIntentState = function(intentKey) {
         isSuccess = event["s" + responseNumKey] == "1";
     }
 
+    if (intentKey == GameConst.Intents.CANT_UNDERSTAND) {
+        responsePrompt += " Say wreck em, pump it up, you got this, or hold back.";
+    }
+
+    // Success or failure?
     var soundFile = "<audio src='https://s3.amazonaws.com/brutadonsounds/goodchoice.mp3'/> "
     if (!isSuccess) {
         GameData.numFailures++;
