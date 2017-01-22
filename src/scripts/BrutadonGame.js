@@ -11,12 +11,6 @@ var AlexaSkill = require('./AlexaSkill'),
 var APP_ID = undefined;//replace with "amzn1.echo-sdk-ams.app.[your-unique-value-here]";
 var skillContext = {};
 
-/**
- * BrutadonGame is a child of AlexaSkill.
- * To read more about inheritance in JavaScript, see the link below.
- *
- * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript#Inheritance
- */
 var BrutadonGame = function () {
     AlexaSkill.call(this, APP_ID);
     skillContext.needMoreHelp = true;

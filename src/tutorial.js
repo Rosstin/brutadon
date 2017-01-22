@@ -1,5 +1,5 @@
 var tutorial = [
-  {
+  /*{
     "prompt": "Welcome to, You Got This Brutadon, a game where you must use your voice in the name of true friendship. Make sure Alexa can hear you clearly, and make sure no one will be disturbed by your cacophonous shouting.",
     "wreck": "",
     "pump": "",
@@ -40,7 +40,7 @@ var tutorial = [
     "5s": "",
     "6t": "",
     "6s": ""
-  },
+  },*/
   {
     "prompt": "We begin long ago, in middle school, when you and Brutadon first became fast friends. Brutadon was the only kaijew in your sixth grade class, and he towered seven stories above all the other students. When they made fun of him, you used to shout, wreckum, Brutadon!",
     "wreck": 1,

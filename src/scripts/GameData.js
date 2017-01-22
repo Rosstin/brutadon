@@ -9,10 +9,9 @@ var GameConst = require('./GameConst');
 
 var GameData = {
   // variable state
+  repeatWelcome: false,
   currentState: GameConst.States.SETUP,
   numFailures: 0,
-
-  timer: NaN,
 
   // event cache; needs to be loaded
   tutorialEvents: require('./../tutorial').tutorial,
