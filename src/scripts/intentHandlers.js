@@ -11,7 +11,6 @@ var GameMachine = require('./GameMachine');
 var registerIntentHandlers = function (intentHandlers, skillContext) {
     intentHandlers.WreckEmIntent = function (intent, session, response) {
         var intentId = GameConst.Intents.WRECK;
-
         response.tell(GameMachine.processIntent(intentId));
     };
 
