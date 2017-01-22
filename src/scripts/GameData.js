@@ -8,17 +8,26 @@
 var GameConst = require('./GameConst');
 
 var GameData = {
-  // variable state
-  repeatWelcome: false,
-  currentState: GameConst.States.SETUP,
-  numFailures: 0,
+  reload: function () {
+      this.repeatWelcome = false;
+      this.repeatTutorial = false;
+      this.currentState = GameConst.States.SETUP;
+      this.numFailures = 0;
 
-  // event cache; needs to be loaded
-  tutorialEvents: require('./../tutorial').tutorial,
-  fightEvents: require('./../events1').events1,
+      this.tutorialEvents = require('./../tutorial').tutorial;
 
-  // game customization
-  failureTolerance: 1000
+      // randomize the fight events.
+      var fightEvents = require('./../events1').events1;
+      for (var i = fightEvents.length - 1; i > 0; i--) {
+          var j = Math.floor(Math.random() * (i + 1));
+          var temp = fightEvents[i];
+          fightEvents[i] = fightEvents[j];
+          fightEvents[j] = temp;
+      }
+      this.fightEvents = fightEvents;
+
+      this.failureTolerance = 1000;
+  }
 };
 
 module.exports = GameData;

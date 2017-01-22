@@ -32,8 +32,9 @@ var setupIntentState = function(intentId) {
 };
 
 var tutorialState = function() {
-    // Start the heartbreaking story
-    // iterate through the tutorial events
+    if (GameData.repeatTutorial) {
+        return "";
+    }
     var tutorialEvent = GameData.tutorialEvents[0];
     GameData.currentEvent = tutorialEvent;
     return tutorialEvent.prompt;
@@ -49,21 +50,58 @@ var tutorialIntentState = function(intentKey) {
     if (intentKey === GameConst.Intents.CANT_UNDERSTAND) {
         // don't even handle for now
     } else {
-        // TODO validate this JSON blob
         if (responseNumKey) {
-            return responseNumKey + "t";
             responsePrompt = event[responseNumKey + "t"];
             isSuccess = event[responseNumKey + "s"] === "1";
         }
     }
 
     if (isSuccess) {
+        GameData.repeatTutorial = false;
         GameData.tutorialEvents.shift();
+    } else {
+        GameData.repeatTutorial = true;
     }
-    if (GameData.tutorialEvents.isEmpty()) {
-        return responsePrompt + GameMachine.getResponseForNewState(GameConst.States.FIGHT);
+    if (!GameData.tutorialEvents.length) {
+        return responsePrompt + " " + GameMachine.getResponseForNewState(GameConst.States.FIGHT);
     }
-    return responsePrompt + GameMachine.getResponseForNewState(GameConst.States.TUTORIAL);
+    return responsePrompt + " " + GameMachine.getResponseForNewState(GameConst.States.TUTORIAL);
+};
+
+var fightState = function() {
+    var fightEvent = GameData.fightEvents.shift();
+    GameData.currentEvent = fightEvent;
+    return fightEvent.prompt;
+};
+
+var fightIntentState = function(intentKey) {
+    // TODO abstract this out
+    var event = GameData.currentEvent;
+    var responseNumKey = event[intentKey];
+    var responsePrompt = "";
+    var isSuccess = false;
+
+    if (intentKey === GameConst.Intents.CANT_UNDERSTAND) {
+        // don't even handle for now
+    } else {
+        if (responseNumKey) {
+            responsePrompt = event[responseNumKey + "t"];
+            isSuccess = event[responseNumKey + "s"] === "1";
+        }
+    }
+
+    if (!isSuccess) {
+        GameData.numFailures++;
+    }
+
+    if (GameData.numFailures > GameData.failureTolerance) {
+        return "OH NO DEAD.";
+    }
+    if (!GameData.fightEvents.length) {
+        return "OH NO OUT OF FIGHT.";
+    }
+
+    return responsePrompt + " " + GameMachine.getResponseForNewState(GameConst.States.FIGHT);
 };
 
 var GameMachine = {
@@ -73,10 +111,9 @@ var GameMachine = {
                 return setupIntentState(intentKey);
             case GameConst.States.TUTORIAL:
                 return tutorialIntentState(intentKey);
-            default:
-                 // ideally shouldn't happen
-                console.log("NO STATE");
-                // exit the game or whatever
+            case GameConst.States.FIGHT:
+                return fightIntentState(intentKey);
+            default:;
         }
     },
 
@@ -88,10 +125,9 @@ var GameMachine = {
                 return setupState();
             case GameConst.States.TUTORIAL:
                 return tutorialState();
-            default:
-                 // ideally shouldn't happen
-                console.log("NO STATE");
-                // exit the game or whatever
+            case GameConst.States.FIGHT:
+                return fightState();
+            default:;
         }
         return "Cannot find state for " + newState + ".";
     }

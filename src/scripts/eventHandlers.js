@@ -5,14 +5,17 @@
  */
 'use strict';
 
+var GameData = require('./GameData');
 var GameConst = require('./GameConst');
 var GameMachine = require('./GameMachine');
 
 var registerEventHandlers = function (eventHandlers, skillContext) {
     eventHandlers.onSessionStarted = function (sessionStartedRequest, session) {
+        GameData.reload();
     };
 
     eventHandlers.onLaunch = function (launchRequest, session, response) {
+        GameData.reload();
         response.tell(GameMachine.getResponseForNewState(GameConst.States.SETUP));
     };
 
