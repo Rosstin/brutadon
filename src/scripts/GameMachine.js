@@ -109,7 +109,8 @@ var endingState = function() {
     if (GameData.numFailures < GameData.failureTolerance) {
         responsePrompt = "Suddenly, there's an opening. Gromyulox staggers with exhaustion, revealing his weak spot: the fleshy, neon orange brain sac hidden in his secret armpit. Brutadon stabs it, and Gromyulox's blood sprays everywhere. Gromyulox roars with the sound of one million volcanoes erupting in the same place at the same time. his massive body topples into the river, where his radioactive heart fires are extinguished in a cloud of hissing steam, and his whole body melts into a toxic soup. This district of the city will be uninhabitable for the next ten thousand years. Brutadon weakly high fives you, a thin smile on his craggy face. You know that Brutadon has finally attained inner peace. He has conquered not only Gromyulox, but also his own doubts. As you walk off into the sunset together, you know that even more important than saving the city and the lives of its one million citizens, was the friendship that you shared. Thank you, Brutadon. You are a true friend. The end.";
     }
-    return responsePrompt;
+    var endSound = "<audio src='https://s3.amazonaws.com/brutadonsounds/endingbrutadon.mp3'/> ";
+    return endSound + responsePrompt;
 }
 
 var endIntentState = function(intentKey) {
