@@ -21,6 +21,10 @@ var GameConst = {
       HOLD_BACK: 'hold',
       NO_RESPONSE: 'none',
       CANT_UNDERSTAND: 'huh'
+    },
+
+    Text: {
+      GOODBYE: 'Brutadon, with tears in his eyes, waves goodbye'
     }
 };
 

@@ -8,6 +8,7 @@ UnrecognizedIntent ThisIsPurposlyNonSense
 AMAZON.StopIntent stop
 AMAZON.StopIntent off
 AMAZON.StopIntent shut up
+AMAZON.StopIntent quit
 AMAZON.StartOverIntent start over
 AMAZON.StartOverIntent restart
 AMAZON.StartOverIntent start again

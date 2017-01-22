@@ -45,5 +45,21 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
     intentHandlers.UnrecognizedIntent = function (intent, session, response) {
         triggerAlexaResponse(GameConst.Intents.CANT_UNDERSTAND, response);
     };
+
+    intentHandlers['AMAZON.StopIntent'] = function (intent, session, response) {
+        response.tell(GameConst.Text.GOODBYE, true);
+    };
+
+    intentHandlers['AMAZON.StartOverIntent'] = function (intent, session, response) {
+        GameData.reload();
+
+        var speechResponse = GameMachine.getResponseForNewState(GameConst.States.SETUP);
+        speechResponse = {
+            type: 'SSML',
+            speech: "<speak>" + speechResponse + "</speak>"
+        };
+
+        response.tell(speechResponse, false);
+    };
 };
 exports.register = registerIntentHandlers;

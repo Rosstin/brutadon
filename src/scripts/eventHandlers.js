@@ -27,7 +27,7 @@ var registerEventHandlers = function (eventHandlers, skillContext) {
     };
 
     eventHandlers.onSessionEnded = function (sessionEndedRequest, session) {
-        response.tell('Goodbye');
+        // nothing.
     };
 };
 exports.register = registerEventHandlers;
