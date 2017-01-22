@@ -29,8 +29,8 @@ var GameData = {
       this.fightEvents = fightEvents;
       this.fightIndex = 0;
 
-      this.failureTolerance = 2;
-      this.fightTolerance = 4;
+      this.failureTolerance = 5;
+      this.fightTolerance = 10;
   }
 };
 
