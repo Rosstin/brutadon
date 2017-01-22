@@ -16,7 +16,8 @@ var setupState = function() {
                       " If you would like to skip the tutorial, shout WRECK um BRUTADON.";
     }
 
-    return welcomeText;
+    return "short welcome text";
+    //return welcomeText;
 };
 
 var setupIntentState = function(intentId) {
@@ -47,13 +48,9 @@ var tutorialIntentState = function(intentKey) {
     var responsePrompt = "";
     var isSuccess = false;
 
-    if (intentKey === GameConst.Intents.CANT_UNDERSTAND) {
-        // don't even handle for now
-    } else {
-        if (responseNumKey) {
-            responsePrompt = event["t" + responseNumKey];
-            isSuccess = event["s" + responseNumKey] == "1";
-        }
+    if (responseNumKey) {
+        responsePrompt = event["t" + responseNumKey];
+        isSuccess = event["s" + responseNumKey] == "1";
     }
 
     if (isSuccess) {
@@ -82,28 +79,35 @@ var fightIntentState = function(intentKey) {
     var responsePrompt = "";
     var isSuccess = false;
 
-    if (intentKey === GameConst.Intents.CANT_UNDERSTAND) {
-        // don't even handle for now
-    } else {
-        if (responseNumKey) {
-          responsePrompt = event["t"+ responseNumKey];
-          isSuccess = event["s" + responseNumKey] == "1";
-        }
+    if (responseNumKey) {
+        responsePrompt = event["t" + responseNumKey];
+        isSuccess = event["s" + responseNumKey] == "1";
     }
 
     if (!isSuccess) {
         GameData.numFailures++;
     }
 
-    if (GameData.numFailures > GameData.failureTolerance) {
-        return "OH NO DEAD.";
-    }
-    if (GameData.fightIndex >= GameData.fightEvents.length) {
-        return "OH NO OUT OF FIGHT.";
+    var newState = GameConst.States.FIGHT;
+    if (GameData.numFailures >= GameData.failureTolerance ||
+        GameData.fightIndex >= GameData.fightTolerance) {
+        newState = GameConst.States.ENDING;
     }
 
-    return responsePrompt + " " + GameMachine.getResponseForNewState(GameConst.States.FIGHT);
+    return responsePrompt + " " + GameMachine.getResponseForNewState(newState);
 };
+
+var endingState = function() {
+    var responsePrompt = "YOU LOSE";
+    if (GameData.numFailures < GameData.failureTolerance) {
+        responsePrompt = "YOU WIN";
+    }
+    return responsePrompt;
+}
+
+var endIntentState = function(intentKey) {
+    // nothing.
+}
 
 var GameMachine = {
     getResponseForIntent: function(intentKey) {
@@ -128,6 +132,8 @@ var GameMachine = {
                 return tutorialState();
             case GameConst.States.FIGHT:
                 return fightState();
+            case GameConst.States.ENDING:
+                return endingState();
             default:;
         }
         return "Cannot find state for " + newState + ".";

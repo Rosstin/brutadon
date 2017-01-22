@@ -12,6 +12,7 @@ var GameData = {
       this.repeatWelcome = false;
       this.repeatTutorial = false;
       this.currentState = GameConst.States.SETUP;
+
       this.numFailures = 0;
 
       this.tutorialEvents = require('./../tutorial').tutorial;
@@ -28,7 +29,8 @@ var GameData = {
       this.fightEvents = fightEvents;
       this.fightIndex = 0;
 
-      this.failureTolerance = 1000;
+      this.failureTolerance = 2;
+      this.fightTolerance = 4;
   }
 };
 
