@@ -16,7 +16,14 @@ var registerEventHandlers = function (eventHandlers, skillContext) {
 
     eventHandlers.onLaunch = function (launchRequest, session, response) {
         GameData.reload();
-        response.tell(GameMachine.getResponseForNewState(GameConst.States.SETUP));
+
+        var speechResponse = GameMachine.getResponseForNewState(GameConst.States.SETUP);
+        speechResponse = {
+            type: 'SSML',
+            speech: "<speak>" + speechResponse + "</speak>"
+        };
+
+        response.tell(speechResponse, false);
     };
 
     eventHandlers.onSessionEnded = function (sessionEndedRequest, session) {

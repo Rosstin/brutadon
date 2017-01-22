@@ -6,37 +6,44 @@
 'use strict';
 
 var GameConst = require('./GameConst');
+var GameData = require('./GameData');
 var GameMachine = require('./GameMachine');
+
+var triggerAlexaResponse = function(intentId, response) {
+    var speechResponse = GameMachine.getResponseForIntent(intentId);
+    var shouldEndSession = GameData.currentState == GameConst.States.ENDING;
+
+    speechResponse = {
+        type: 'SSML',
+        speech: "<speak>" + speechResponse + "</speak>"
+    };
+
+    response.tell(speechResponse, shouldEndSession);
+}
 
 var registerIntentHandlers = function (intentHandlers, skillContext) {
     intentHandlers.WreckEmIntent = function (intent, session, response) {
-        var intentId = GameConst.Intents.WRECK;
-        response.tell(GameMachine.getResponseForIntent(intentId));
+        triggerAlexaResponse(GameConst.Intents.WRECK, response);
     };
 
     intentHandlers.PumpItUpIntent = function (intent, session, response) {
-        var intentId = GameConst.Intents.PUMP;
-        response.tell(GameMachine.getResponseForIntent(intentId));
+        triggerAlexaResponse(GameConst.Intents.PUMP, response);
     };
 
     intentHandlers.YouGotThisIntent = function (intent, session, response) {
-        var intentId = GameConst.Intents.GOT_THIS;
-        response.tell(GameMachine.getResponseForIntent(intentId));
+        triggerAlexaResponse(GameConst.Intents.GOT_THIS, response);
     };
 
     intentHandlers.HoldBackIntent = function (intent, session, response) {
-        var intentId = GameConst.Intents.HOLD_BACK;
-        response.tell(GameMachine.getResponseForIntent(intentId));
+        triggerAlexaResponse(GameConst.Intents.HOLD_BACK, response);
     };
 
     intentHandlers.NoInPutIntent = function (intent, session, response) {
-        var intentId = GameConst.Intents.NO_RESPONSE;
-        response.tell(GameMachine.getResponseForIntent(intentId));
+        triggerAlexaResponse(GameConst.Intents.NO_RESPONSE, response);
     };
 
     intentHandlers.UnrecognizedIntent = function (intent, session, response) {
-        var intentId = GameConst.Intents.CANT_UNDERSTAND;
-        response.tell(GameMachine.getResponseForIntent(intentId));
+        triggerAlexaResponse(GameConst.Intents.CANT_UNDERSTAND, response);
     };
 };
 exports.register = registerIntentHandlers;

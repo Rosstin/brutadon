@@ -159,15 +159,11 @@ Response.prototype = (function () {
     };
 
     return {
-        tell: function (speechOutput) {
-            var ssml_speech = {
-                type: 'SSML',
-                speech: "<speak>" + speechOutput + "</speak>"
-            };
+        tell: function (speechOutput, shouldEndSession) {
             this._context.succeed(buildSpeechletResponse({
                 session: this._session,
-                output: ssml_speech,
-                shouldEndSession: false /* true */
+                output: speechOutput,
+                shouldEndSession: shouldEndSession
             }));
         },
         tellWithCard: function (speechOutput, cardTitle, cardContent) {
