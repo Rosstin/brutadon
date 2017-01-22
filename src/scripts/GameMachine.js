@@ -51,7 +51,7 @@ var tutorialIntentState = function(intentKey) {
         // don't even handle for now
     } else {
         if (responseNumKey) {
-            responsePrompt = event["t "+ responseNumKey];
+            responsePrompt = event["t" + responseNumKey];
             isSuccess = event["s" + responseNumKey] === "1";
         }
     }
@@ -86,7 +86,7 @@ var fightIntentState = function(intentKey) {
         // don't even handle for now
     } else {
         if (responseNumKey) {
-          responsePrompt = event["t "+ responseNumKey];
+          responsePrompt = event["t"+ responseNumKey];
           isSuccess = event["s" + responseNumKey] === "1";
         }
     }
