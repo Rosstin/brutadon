@@ -27,9 +27,8 @@ var GameConst = {
       GOODBYE: 'Brutadon, with tears in his eyes, waves goodbye',
       PROMPT: 'Say wreck em, pump it up, you got this, or hold back.',
       WELCOME: "Welcome to, You Got This Brutadon, a game where you must use your voice in the name of true friendship." +
-      " Make sure Alexa can hear you clearly, and make sure no one will be disturbed by your cacophonous shouting." +
-      " If this is your first time playing, You Got This Brutadon, shout, PUMP IT UP BRUTADON, to begin the tutorial." +
-      " If you would like to skip the tutorial, shout WRECK um BRUTADON.",
+      " Shout, PUMP IT UP, to begin the tutorial. " +
+      " Shout, WRECK EM, to skip the tutorial.",
       WELCOME_REPEAT: "If this is your first time playing, You Got This Brutadon, shout, PUMP IT UP BRUTADON, to begin the tutorial." +
       " If you would like to skip the tutorial, shout WRECK um BRUTADON.",
       ENDING_BAD: "But as the battle wears on, you can see that Brutadon is getting more and more weary. His seven shoulders sag. His " +

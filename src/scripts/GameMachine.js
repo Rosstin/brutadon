@@ -28,7 +28,7 @@ var tutorialState = function() {
     }
     var tutorialEvent = GameData.tutorialEvents[GameData.tutorialIndex];
     GameData.currentEvent = tutorialEvent;
-    return tutorialEvent.prompt;
+    return GameConst.Sounds.ROAR + tutorialEvent.prompt;
 };
 
 var tutorialIntentState = function(intentKey) {
@@ -93,9 +93,7 @@ var fightIntentState = function(intentKey) {
         newState = GameConst.States.ENDING;
     }
 
-    if(newState == GameConst.States.FIGHT && GameData.promptEveryTime){
-        return soundFile + responsePrompt + " " + GameMachine.getResponseForNewState(newState) + GameConst.Text.PROMPT;
-    } else return soundFile + responsePrompt + " " + GameMachine.getResponseForNewState(newState);
+	return soundFile + responsePrompt + " " + GameMachine.getResponseForNewState(newState);
 
 };
 
