@@ -64,12 +64,15 @@ var tutorialIntentState = function(intentKey) {
     return responsePrompt + " " + GameMachine.getResponseForNewState(GameConst.States.TUTORIAL);
 };
 
-var fightState = function() {
+var fightState = function() { 
     var fightEvent = GameData.fightEvents[GameData.fightIndex];
     GameData.currentEvent = fightEvent;
     GameData.fightIndex++;
-    //return "<break time=\"750ms\"/> " + fightEvent.prompt;
-    return " <audio src='https://s3.amazonaws.com/brutadonsounds/output.mp3'/> " + fightEvent.prompt;
+    if(GameData.promptEveryTime){
+	    return " <audio src='https://s3.amazonaws.com/brutadonsounds/output.mp3'/> " + fightEvent.prompt + " " + GameConst.Text.PROMPT;
+	}else{
+	    return " <audio src='https://s3.amazonaws.com/brutadonsounds/output.mp3'/> " + fightEvent.prompt;
+	}
 };
 
 var fightIntentState = function(intentKey) {
@@ -101,12 +104,7 @@ var fightIntentState = function(intentKey) {
         newState = GameConst.States.ENDING;
     }
 
-    if(newState == GameConst.States.FIGHT && GameData.promptEveryTime){
-        return soundFile + responsePrompt + " " + GameMachine.getResponseForNewState(newState) + GameConst.Text.PROMPT;
-    }
-    else{
-        return soundFile + responsePrompt + " " + GameMachine.getResponseForNewState(newState);
-    }
+    return soundFile + responsePrompt + " " + GameMachine.getResponseForNewState(newState);
 };
 
 var endingState = function() {
