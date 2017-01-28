@@ -60,7 +60,7 @@ var fightState = function() {
     GameData.currentEvent = fightEvent;
     GameData.fightIndex++;
 
-    if(GameData.promptEveryTime) return GameConst.Sounds.brutadonRoar + fightEvent.prompt + " " + GameConst.Text.PROMPT;
+    if(GameData.promptEveryTime) return GameConst.Sounds.ROAR + fightEvent.prompt + " " + GameConst.Text.PROMPT;
     else return GameConst.Sounds.ROAR + fightEvent.prompt;
 };
 
