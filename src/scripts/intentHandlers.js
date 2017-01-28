@@ -18,7 +18,12 @@ var triggerAlexaResponse = function(intentId, response) {
         speech: "<speak>" + speechResponse + "</speak>"
     };
 
-    response.tell(speechResponse, shouldEndSession);
+    if(GameData.repromptIfNoResponse){
+	    response.tellWithReprompt(speechResponse, GameConst.Text.PROMPT, shouldEndSession);
+	}
+	else{
+	    response.tell(speechResponse, shouldEndSession);
+	}
 }
 
 var registerIntentHandlers = function (intentHandlers, skillContext) {

@@ -32,7 +32,8 @@ var GameData = {
       this.failureTolerance = 5;
       this.fightTolerance = 10;
 
-      this.promptEveryTime = true;
+      this.promptEveryTime = false;
+      this.repromptIfNoResponse = true;
 
   }
 };
