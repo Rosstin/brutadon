@@ -33,12 +33,6 @@
 		},{
 			"intent": "AMAZON.StartOverIntent",
 			"slots": []
-		}, {
-		"intent": "DescriptionIntent",
-		 "slots": [
-        {
-          "name": "Description",
-          "type": "descriptionType"
-        }]
-	}]
+		}
+	]
 }
