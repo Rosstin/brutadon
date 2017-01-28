@@ -59,7 +59,9 @@ var fightState = function() {
     var fightEvent = GameData.fightEvents[GameData.fightIndex];
     GameData.currentEvent = fightEvent;
     GameData.fightIndex++;
-    return GameConst.Sounds.brutadonRoar + fightEvent.prompt;
+
+    if(GameData.promptEveryTime) return GameConst.Sounds.brutadonRoar + fightEvent.prompt + " " + GameConst.Text.PROMPT;
+    else return GameConst.Sounds.brutadonRoar + fightEvent.prompt;
 };
 
 var fightIntentState = function(intentKey) {
@@ -94,6 +96,7 @@ var fightIntentState = function(intentKey) {
     if(newState == GameConst.States.FIGHT && GameData.promptEveryTime){
         return soundFile + responsePrompt + " " + GameMachine.getResponseForNewState(newState) + GameConst.Text.PROMPT;
     } else return soundFile + responsePrompt + " " + GameMachine.getResponseForNewState(newState);
+
 };
 
 var endingState = function() {
