@@ -49,6 +49,10 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
     intentHandlers['AMAZON.StopIntent'] = function (intent, session, response) {
         response.tell(GameConst.Text.GOODBYE, true);
     };
+    
+    intentHandlers['AMAZON.CancelIntent'] = function (intent, session, response) {
+        response.tell(GameConst.Text.GOODBYE, true);
+    };
 
     intentHandlers['AMAZON.StartOverIntent'] = function (intent, session, response) {
         GameData.reload();
