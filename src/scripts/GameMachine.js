@@ -7,7 +7,7 @@ var GameConst = require('./GameConst');
 
 var setupState = function() {
     if (GameData.repeatWelcome) return GameConst.Text.WELCOME_REPEAT;
-    else return GameConst.Text.WELCOME;
+    else return GameConst.Sounds.ROAR + GameConst.Text.WELCOME;
 };
 
 var setupIntentState = function(intentId) {
@@ -61,7 +61,7 @@ var fightState = function() {
     GameData.fightIndex++;
 
     if(GameData.promptEveryTime) return GameConst.Sounds.brutadonRoar + fightEvent.prompt + " " + GameConst.Text.PROMPT;
-    else return GameConst.Sounds.brutadonRoar + fightEvent.prompt;
+    else return GameConst.Sounds.ROAR + fightEvent.prompt;
 };
 
 var fightIntentState = function(intentKey) {
@@ -81,10 +81,10 @@ var fightIntentState = function(intentKey) {
     }
 
     // Success or failure?
-    var soundFile = GameConst.Sounds.success;
+    var soundFile = GameConst.Sounds.SUCCESS;
     if (!isSuccess) {
         GameData.numFailures++;
-        soundFile = GameConst.Sounds.fail;
+        soundFile = GameConst.Sounds.FAIL;
     }
 
     var newState = GameConst.States.FIGHT;
@@ -101,9 +101,9 @@ var fightIntentState = function(intentKey) {
 
 var endingState = function() {
     //bad
-    if (GameData.numFailures >= GameData.failureTolerance) return GameConst.Sounds.gameEnd + GameConst.Text.ENDING_BAD;
+    if (GameData.numFailures >= GameData.failureTolerance) return GameConst.Sounds.ENDING + GameConst.Text.ENDING_BAD;
     //good
-    else return GameConst.Sounds.gameEnd + GameConst.Text.ENDING_GOOD;
+    else return GameConst.Sounds.ENDING + GameConst.Text.ENDING_GOOD;
 }
 
 var endIntentState = function(intentKey) {
