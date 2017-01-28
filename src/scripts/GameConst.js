@@ -24,7 +24,8 @@ var GameConst = {
     },
 
     Text: {
-      GOODBYE: 'Brutadon, with tears in his eyes, waves goodbye'
+      GOODBYE: 'Brutadon, with tears in his eyes, waves goodbye',
+      PROMPT: 'Say wreck em, pump it up, you got this, or hold back.'
     }
 };
 

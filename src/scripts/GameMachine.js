@@ -85,7 +85,7 @@ var fightIntentState = function(intentKey) {
     }
 
     if (intentKey == GameConst.Intents.CANT_UNDERSTAND) {
-        responsePrompt += " Say wreck em, pump it up, you got this, or hold back.";
+        responsePrompt += " " + GameConst.Text.PROMPT;
     }
 
     // Success or failure?
@@ -101,7 +101,12 @@ var fightIntentState = function(intentKey) {
         newState = GameConst.States.ENDING;
     }
 
-    return soundFile + responsePrompt + " " + GameMachine.getResponseForNewState(newState);
+    if(newState == GameConst.States.FIGHT && GameData.promptEveryTime){
+        return soundFile + responsePrompt + " " + GameMachine.getResponseForNewState(newState) + GameConst.Text.PROMPT;
+    }
+    else{
+        return soundFile + responsePrompt + " " + GameMachine.getResponseForNewState(newState);
+    }
 };
 
 var endingState = function() {
