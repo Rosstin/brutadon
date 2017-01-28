@@ -38,7 +38,7 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
         triggerAlexaResponse(GameConst.Intents.HOLD_BACK, response);
     };
 
-    intentHandlers.NoInPutIntent = function (intent, session, response) {
+    intentHandlers.NoInputIntent = function (intent, session, response) {
         triggerAlexaResponse(GameConst.Intents.NO_RESPONSE, response);
     };
 

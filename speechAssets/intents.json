@@ -19,7 +19,7 @@
       "intent": "HoldBackIntent",
       "slots": []
     }, {
-      "intent": "NoInPutIntent",
+      "intent": "NoInputIntent",
       "slots": []
     }, {
       "intent": "UnrecognizedIntent",

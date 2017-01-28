@@ -17,3 +17,4 @@ WreckEmIntent wreck em
 PumpItUpIntent pump it up
 YouGotThisIntent you got this
 HoldBackIntent hold back
+NoInputIntent
