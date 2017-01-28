@@ -1,9 +1,3 @@
-DescriptionIntent {Description} please
-DescriptionIntent please {Description}
-DescriptionIntent {Description}
-DescriptionIntent can you {Description}
-DescriptionIntent tell me about that
-DescriptionIntent description please
 UnrecognizedIntent ThisIsPurposlyNonSense
 AMAZON.StopIntent stop
 AMAZON.StopIntent off
