@@ -43,8 +43,9 @@ var GameConst = {
       " Shout START TUTORIAL to begin the tutorial. " +
       " Shout START GAME to skip the tutorial. " +
       " Shout OPTIONS to configure the game. ",
-      WELCOME_REPEAT: "If this is your first time playing, You Got This Brutadon, shout, PUMP IT UP BRUTADON, to begin the tutorial." +
-      " If you would like to skip the tutorial, shout WRECK um BRUTADON.",
+      WELCOME_REPEAT: "If this is your first time playing, You Got This Brutadon, shout, START TUTORIAL, to begin the tutorial." +
+      " If you would like to skip the tutorial, shout START GAME." +
+      " If you want to configure the game, should OPTIONS.",
       OPTION_PROMPT: "Change an option by saying 'CHANGE OPTION NAME TO VALUE'." +
       " When done, say 'START TUTORIAL' or 'START GAME'.",
       ENDING_BAD: "But as the battle wears on, you can see that Brutadon is getting more and more weary. His seven shoulders sag. His " +

@@ -11,15 +11,15 @@ var GameMachine = require('./GameMachine');
 
 var triggerAlexaResponse = function(intentId, response, slots) {
     var speechResponse = GameMachine.getResponseForIntent(intentId, slots);
-    var shouldEndSession = GameData.currentState == GameConst.States.ENDING;
+    var shouldEndSession = GameMachine.currentState == GameConst.States.ENDING;
 
     speechResponse = {
         type: 'SSML',
         speech: "<speak>" + speechResponse + "</speak>"
     };
 
-    if(GameData.repromptIfNoResponse 
-    	&& (GameData.currentState != GameData.States.ENDING) && (GameData.currentState != GameData.States.SETUP) && (GameData.currentState != GameData.States.OPTIONS) ){
+    if (GameData.repromptIfNoResponse
+    	&& (GameMachine.currentState != GameConst.States.ENDING) && (GameMachine.currentState != GameConst.States.SETUP) && (GameMachine.currentState != GameConst.States.OPTIONS) ){
 	    response.tellWithReprompt(speechResponse, GameConst.Text.PROMPT, shouldEndSession);
 	}
 	else{
