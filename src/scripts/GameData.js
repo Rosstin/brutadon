@@ -11,7 +11,6 @@ var GameData = {
   reload: function () {
       this.repeatWelcome = false;
       this.repeatTutorial = false;
-      this.currentState = GameConst.States.SETUP;
 
       this.numFailures = 0;
 
@@ -29,12 +28,12 @@ var GameData = {
       this.fightEvents = fightEvents;
       this.fightIndex = 0;
 
-      this.failureTolerance = 5;
-      this.fightTolerance = 10;
-
       this.promptEveryTime = false;
       this.repromptIfNoResponse = true;
 
+      // customizable by the player
+      this[GameConst.Options.EVENT_COUNT] = 10;
+      this[GameConst.Options.FAILURE_TOLERANCE] = 5;
   }
 };
 
