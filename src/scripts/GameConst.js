@@ -15,14 +15,15 @@ var GameConst = {
       FINISH: 'FINISH'
     },
 
-    // The textual values should be kept in-sync with intents.json
+    // Keep these textual values constant!  They're used to properly access
+    // event response data in events1.js
     Intents: {
-      WRECK: 'WreckEmIntent',
-      PUMP: 'PumpItUpIntent',
-      GOT_THIS: 'YouGotThisIntent',
-      HOLD_BACK: 'HoldBackIntent',
+      WRECK: 'wreck',
+      PUMP: 'pump',
+      GOT_THIS: 'got',
+      HOLD_BACK: 'hold',
       //NO_RESPONSE: 'none',
-      CANT_UNDERSTAND: 'UnrecognizedIntent',
+      CANT_UNDERSTAND: 'huh',
       OPTIONS: 'OptionsIntent',
       CHANGE_OPTION: 'ChangeOptionsIntent',
       START_GAME: 'StartGameIntent',
