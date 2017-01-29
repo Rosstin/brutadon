@@ -18,8 +18,7 @@ var triggerAlexaResponse = function(intentId, response, slots) {
         speech: "<speak>" + speechResponse + "</speak>"
     };
 
-    if(GameData.repromptIfNoResponse 
-    	&& (GameData.currentState != GameData.States.ENDING) && (GameData.currentState != GameData.States.SETUP) && (GameData.currentState != GameData.States.OPTIONS) ){
+	if(GameData.repromptIfNoResponse){
 	    response.tellWithReprompt(speechResponse, GameConst.Text.PROMPT, shouldEndSession);
 	}
 	else{
