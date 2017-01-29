@@ -1,4 +1,18 @@
+WreckEmIntent wreck em
+PumpItUpIntent pump it up
+YouGotThisIntent you got this
+HoldBackIntent hold back
 UnrecognizedIntent ThisIsPurposlyNonSense
+StartGameIntent start
+StartGameIntent start game
+StartGameIntent go to game
+StartTutorialIntent tutorial
+StartTutorialIntent start tutorial
+StartTutorialIntent go to tutorial
+OptionsIntent options
+OptionsIntent go to options
+ChangeOptionsIntent change {OptionName} to {OptionValue}
+ChangeOptionsIntent set {OptionName} to {OptionValue}
 AMAZON.StopIntent stop
 AMAZON.StopIntent off
 AMAZON.StopIntent shut up
@@ -7,7 +21,3 @@ AMAZON.StartOverIntent start over
 AMAZON.StartOverIntent restart
 AMAZON.StartOverIntent start again
 AMAZON.StartOverIntent play again
-WreckEmIntent wreck em
-PumpItUpIntent pump it up
-YouGotThisIntent you got this
-HoldBackIntent hold back

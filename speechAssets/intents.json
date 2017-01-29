@@ -1,12 +1,5 @@
 {
 	"intents": [{
-      "intent": "AMAZON.YesIntent",
-      "slots": []
-    },
-		{
-      "intent": "AMAZON.NoIntent",
-      "slots": []
-    }, {
       "intent": "WreckEmIntent",
       "slots": []
     }, {
@@ -22,17 +15,32 @@
       "intent": "UnrecognizedIntent",
       "slots": []
     }, {
-		"intent": "AMAZON.HelpIntent",
-		"slots": []
-		}, {
-			"intent": "AMAZON.StopIntent",
-			"slots": []
-		}, {
-			"intent": "AMAZON.CancelIntent",
-			"slots": []
-		},{
-			"intent": "AMAZON.StartOverIntent",
-			"slots": []
-		}
-	]
+  	  "intent": "StartGameIntent",
+      "slots": []
+    }, {
+	  "intent": "StartTutorialIntent",
+      "slots": []
+    }, {
+	  "intent": "OptionsIntent",
+  	  "slots": []
+  	}, {
+	  "intent": "ChangeOptionsIntent",
+  	  "slots": [{
+	    "name": "OptionName",
+		"type": "LIST_OF_OPTION_NAMES"
+	  }, {
+		"name": "OptionValue",
+		"type": "AMAZON.NUMBER"
+	  }]
+  	}, {
+	  "intent": "AMAZON.StopIntent",
+	  "slots": []
+	}, {
+	  "intent": "AMAZON.CancelIntent",
+	  "slots": []
+	},{
+	  "intent": "AMAZON.StartOverIntent",
+	  "slots": []
+	}
+  ]
 }
