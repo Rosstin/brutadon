@@ -18,7 +18,6 @@ GameMachine.addState(GameConst.States.SETUP, {
 
     onIntent: function(intentId) {
         switch (intentId) {
-        	// TODO: the 'reprompt' for this state is sometimes the wrong reprompt
         	// TODO: there is a crasher when the "options" intent doesn't understand you... 
         	// this happens when you say (in the options menu) "options" or "dog park" (or a similarly misunderstood phrase)
         	// the reprompt is also wrong
