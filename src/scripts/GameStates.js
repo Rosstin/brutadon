@@ -125,6 +125,8 @@ GameMachine.addState(GameConst.States.FIGHT, {
         var responsePrompt = "";
         var isSuccess = false;
 
+        // if an entry is "1" it's a success. if it's not "1", it's a failure
+
         if (responseNumKey) {
             responsePrompt = event["t" + responseNumKey];
             isSuccess = event["s" + responseNumKey] == "1";
