@@ -41,11 +41,13 @@ var GameConst = {
       PROMPT: 'Say wreck em, pump it up, you got this, or hold back.',
       WELCOME: "Welcome to, You Got This Brutadon, a game where you must use your voice in the name of true friendship." +
       " Shout START TUTORIAL to begin the tutorial. " +
-      " Shout START GAME to skip the tutorial. " +
-      " Shout OPTIONS to configure the game. ",
+      " Shout START GAME to skip the tutorial. ",
+      // +
+      //" Shout OPTIONS to configure the game. ",
       WELCOME_REPEAT: "If this is your first time playing, You Got This Brutadon, shout, START TUTORIAL, to begin the tutorial." +
-      " If you would like to skip the tutorial, shout START GAME." +
-      " If you want to configure the game, should OPTIONS.",
+      " If you would like to skip the tutorial, shout START GAME.",
+      // +
+      //" If you want to configure the game, shout OPTIONS.",
       OPTION_PROMPT: "Change an option by saying 'CHANGE OPTION NAME TO VALUE'." +
       " When done, say 'START TUTORIAL' or 'START GAME'.",
       ENDING_BAD: "But as the battle wears on, you can see that Brutadon is getting more and more weary. His seven shoulders sag. His " +
@@ -67,8 +69,8 @@ var GameConst = {
 
     Sounds: {
       ROAR: "<audio src='https://s3.amazonaws.com/brutadonsounds/output.mp3'/> ",
-      SUCCESS: "<audio src='https://s3.amazonaws.com/brutadonsounds/goodchoice.mp3'/> ",
-      FAIL: "<audio src='https://s3.amazonaws.com/brutadonsounds/failbrutadon.mp3'/> ",
+      SUCCESS: "<audio src='https://s3.amazonaws.com/brutadonsounds/success20170204.mp3'/> ",
+      FAIL: "<audio src='https://s3.amazonaws.com/brutadonsounds/failure20170204.mp3'/> ",
       ENDING: "<audio src='https://s3.amazonaws.com/brutadonsounds/endingbrutadon.mp3'/> ",
     }
 };

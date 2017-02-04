@@ -18,8 +18,12 @@ GameMachine.addState(GameConst.States.SETUP, {
 
     onIntent: function(intentId) {
         switch (intentId) {
-            case GameConst.Intents.OPTIONS:
-                return GameMachine.getResponseForNewState(GameConst.States.OPTIONS);
+        	// TODO: the 'reprompt' for this state is sometimes the wrong reprompt
+        	// TODO: there is a crasher when the "options" intent doesn't understand you... 
+        	// this happens when you say (in the options menu) "options" or "dog park" (or a similarly misunderstood phrase)
+        	// the reprompt is also wrong
+            //case GameConst.Intents.OPTIONS:
+            //    return GameMachine.getResponseForNewState(GameConst.States.OPTIONS);
             case GameConst.Intents.START_TUTORIAL:
                 return GameMachine.getResponseForNewState(GameConst.States.TUTORIAL);
             case GameConst.Intents.START_GAME:
@@ -45,6 +49,11 @@ GameMachine.addState(GameConst.States.OPTIONS, {
         options += GameConst.Text.OPTION_PROMPT;
         return options;
     },
+
+
+	// TODO: there is a crasher when the "options" intent doesn't understand you... 
+	// this happens when you say (in the options menu) "options" or "dog park" (or a similarly misunderstood phrase)
+	// the reprompt is also wrong
 
     onIntent: function(intentId, slots) {
         switch (intentId) {
