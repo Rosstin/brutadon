@@ -12,31 +12,61 @@ var GameMachine = require('./GameMachine');
 
 GameMachine.addState(GameConst.States.SETUP, {
     onTransition: function() {
-        if (GameData.repeatWelcome) return GameConst.Text.WELCOME_REPEAT;
-        else return GameConst.Sounds.ROAR + GameConst.Text.WELCOME;
+        return GameConst.Sounds.ROAR +
+            GameConst.Text.WELCOME +
+            GameMachine.getResponseForNewState(GameConst.States.CONFIGURE_LENGTH);
+    },
+
+    onIntent: function(intentId) {
+        // should never hit here
+    }
+});
+
+///////////////////////////////////////////////////////////////////////
+
+GameMachine.addState(GameConst.States.CONFIGURE_LENGTH, {
+    onTransition: function() {
+        return GameConst.Text.DURATION_QUESTION;
     },
 
     onIntent: function(intentId) {
         switch (intentId) {
-        	// TODO: there is a crasher when the "options" intent doesn't understand you... 
-        	// this happens when you say (in the options menu) "options" or "dog park" (or a similarly misunderstood phrase)
-        	// the reprompt is also wrong
-            //case GameConst.Intents.OPTIONS:
-            //    return GameMachine.getResponseForNewState(GameConst.States.OPTIONS);
-            case GameConst.Intents.START_TUTORIAL:
-                return GameMachine.getResponseForNewState(GameConst.States.TUTORIAL);
-            case GameConst.Intents.START_GAME:
-                return GameMachine.getResponseForNewState(GameConst.States.FIGHT);
+            case GameConst.Intents.LONG_OPTION:
+                GameData[GameConst.Options.EVENT_COUNT] = 10;
+                GameData[GameConst.Options.FAILURE_TOLERANCE] = 5;
+                return GameMachine.getResponseForNewState(GameConst.States.CONFIGURE_TUTORIAL);
+            case GameConst.Intents.SHORT_OPTION:
+                GameData[GameConst.Options.EVENT_COUNT] = 5;
+                GameData[GameConst.Options.FAILURE_TOLERANCE] = 3;
+                return GameMachine.getResponseForNewState(GameConst.States.CONFIGURE_TUTORIAL);
             default:
-                GameData.repeatWelcome = true;
-                return GameMachine.getResponseForNewState(GameConst.States.SETUP);
+                return GameMachine.getResponseForNewState(GameConst.States.CONFIGURE_LENGTH);
         }
     }
 });
 
 ///////////////////////////////////////////////////////////////////////
 
-GameMachine.addState(GameConst.States.OPTIONS, {
+GameMachine.addState(GameConst.States.CONFIGURE_TUTORIAL, {
+    onTransition: function() {
+        return GameConst.Text.SKIP_TUTORIAL_QUESTION;
+    },
+
+    onIntent: function(intentId) {
+        switch (intentId) {
+            case GameConst.Intents.YES:
+                return GameMachine.getResponseForNewState(GameConst.States.FIGHT);
+            case GameConst.Intents.NO:
+                return GameMachine.getResponseForNewState(GameConst.States.TUTORIAL);
+            default:
+                return GameMachine.getResponseForNewState(GameConst.States.CONFIGURE_TUTORIAL);
+        }
+    }
+});
+
+///////////////////////////////////////////////////////////////////////
+
+/*GameMachine.addState(GameConst.States.OPTIONS, {
     onTransition: function() {
         var options = "Brutadon options. ";
         for (var key in GameConst.Options) {
@@ -50,7 +80,7 @@ GameMachine.addState(GameConst.States.OPTIONS, {
     },
 
 
-	// TODO: there is a crasher when the "options" intent doesn't understand you... 
+	// TODO: there is a crasher when the "options" intent doesn't understand you...
 	// this happens when you say (in the options menu) "options" or "dog park" (or a similarly misunderstood phrase)
 	// the reprompt is also wrong
 
@@ -75,7 +105,7 @@ GameMachine.addState(GameConst.States.OPTIONS, {
                 return GameConst.Text.OPTION_PROMPT;
         }
     }
-});
+});*/
 
 ///////////////////////////////////////////////////////////////////////
 

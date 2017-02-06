@@ -36,13 +36,12 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
         triggerAlexaResponse(GameConst.Intents.START_TUTORIAL, response);
     };
 
-    intentHandlers.OptionsIntent = function (intent, session, response) {
+    /*intentHandlers.OptionsIntent = function (intent, session, response) {
         triggerAlexaResponse(GameConst.Intents.OPTIONS, response);
     };
-
     intentHandlers.ChangeOptionsIntent = function (intent, session, response) {
         triggerAlexaResponse(GameConst.Intents.CHANGE_OPTION, response, intent.slots);
-    };
+    };*/
 
     intentHandlers.WreckEmIntent = function (intent, session, response) {
         triggerAlexaResponse(GameConst.Intents.WRECK, response);
@@ -60,12 +59,22 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
         triggerAlexaResponse(GameConst.Intents.HOLD_BACK, response);
     };
 
-    //intentHandlers.NoInputIntent = function (intent, session, response) {
-    //    triggerAlexaResponse(GameConst.Intents.NO_RESPONSE, response);
-    //};
-
     intentHandlers.UnrecognizedIntent = function (intent, session, response) {
         triggerAlexaResponse(GameConst.Intents.CANT_UNDERSTAND, response);
+    };
+
+    intentHandlers.LongOptionIntent = function (intent, session, response) {
+        triggerAlexaResponse(GameConst.Intents.LONG_OPTION, response);
+    };
+    intentHandlers.ShortOptionIntent = function (intent, session, response) {
+        triggerAlexaResponse(GameConst.Intents.SHORT_OPTION, response);
+    };
+
+    intentHandlers['AMAZON.YesIntent'] = function (intent, session, response) {
+        triggerAlexaResponse(GameConst.Intents.YES, response);
+    };
+    intentHandlers['AMAZON.NoIntent'] = function (intent, session, response) {
+        triggerAlexaResponse(GameConst.Intents.NO, response);
     };
 
     intentHandlers['AMAZON.StopIntent'] = function (intent, session, response) {

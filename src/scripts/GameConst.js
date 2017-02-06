@@ -8,7 +8,9 @@
 var GameConst = {
     States: {
       SETUP: 'SETUP',
-      OPTIONS: 'OPTIONS',
+      //OPTIONS: 'OPTIONS',
+      CONFIGURE_LENGTH: 'CONFIGURE_LENGTH',
+      CONFIGURE_TUTORIAL: 'CONFIGURE_TUTORIAL',
       TUTORIAL: 'TUTORIAL',
       FIGHT: 'FIGHT',
       ENDING: 'ENDING',
@@ -24,10 +26,14 @@ var GameConst = {
       HOLD_BACK: 'hold',
       //NO_RESPONSE: 'none',
       CANT_UNDERSTAND: 'huh',
-      OPTIONS: 'OptionsIntent',
-      CHANGE_OPTION: 'ChangeOptionsIntent',
+      //OPTIONS: 'OptionsIntent',
+      //CHANGE_OPTION: 'ChangeOptionsIntent',
       START_GAME: 'StartGameIntent',
       START_TUTORIAL: 'StartTutorialIntent',
+      SHORT_OPTION: 'ShortOptionIntent',
+      LONG_OPTION: 'LongOptionIntent',
+      YES: 'AMAZON.YesIntent',
+      NO: 'AMAZON.NoIntent'
     },
 
     // The textual values should be kept in-sync with LIST_OF_OPTION_NAMES
@@ -39,17 +45,21 @@ var GameConst = {
     Text: {
       GOODBYE: 'Brutadon, with tears in his eyes, waves goodbye',
       PROMPT: 'Say wreck em, pump it up, you got this, or hold back.',
-      WELCOME: "Welcome to, You Got This Brutadon, a game where you must use your voice in the name of true friendship." +
-      " Shout START TUTORIAL to begin the tutorial. " +
-      " Shout START GAME to skip the tutorial. ",
+      WELCOME: "Welcome to, You Got This Brutadon, a game where you must use your voice in the name of true friendship.",
+      //" Shout START TUTORIAL to begin the tutorial. " +
+      //" Shout START GAME to skip the tutorial. ",
+
+      DURATION_QUESTION: "Would you like to play a long game, or a short game?",
+      SKIP_TUTORIAL_QUESTION: "Would you like to skip the tutorial?",
+
       // +
       //" Shout OPTIONS to configure the game. ",
-      WELCOME_REPEAT: "If this is your first time playing, You Got This Brutadon, shout, START TUTORIAL, to begin the tutorial." +
-      " If you would like to skip the tutorial, shout START GAME.",
+      //WELCOME_REPEAT: "If this is your first time playing, You Got This Brutadon, shout, START TUTORIAL, to begin the tutorial." +
+      //" If you would like to skip the tutorial, shout START GAME.",
       // +
       //" If you want to configure the game, shout OPTIONS.",
-      OPTION_PROMPT: "Change an option by saying 'CHANGE OPTION NAME TO VALUE'." +
-      " When done, say 'START TUTORIAL' or 'START GAME'.",
+      //OPTION_PROMPT: "Change an option by saying 'CHANGE OPTION NAME TO VALUE'." +
+      //" When done, say 'START TUTORIAL' or 'START GAME'.",
       ENDING_BAD: "But as the battle wears on, you can see that Brutadon is getting more and more weary. His seven shoulders sag. His " +
       "emotion-sac is dull grey. Each of his punches is weaker than the last. Gromyulox has simply outlasted him. In the end, there is" +
       " nothing you can do but watch as Gromyulox fires his parasitic, egg, missles, into Brutadon's wounded side, where they will" +

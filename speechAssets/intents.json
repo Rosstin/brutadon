@@ -33,14 +33,26 @@
 		"type": "AMAZON.NUMBER"
 	  }]
   	}, {
+		"intent": "LongOptionIntent",
+		"slots": []
+	}, {
+		"intent": "ShortOptionIntent",
+		"slots": []
+	}, {
 	  "intent": "AMAZON.StopIntent",
 	  "slots": []
 	}, {
 	  "intent": "AMAZON.CancelIntent",
 	  "slots": []
-	},{
+	}, {
 	  "intent": "AMAZON.StartOverIntent",
 	  "slots": []
-	}
+	}, {
+	  "intent": "AMAZON.YesIntent",
+	  "slots": []
+    }, {
+      "intent": "AMAZON.NoIntent",
+      "slots": []
+    }
   ]
 }

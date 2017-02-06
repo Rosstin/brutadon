@@ -13,6 +13,10 @@ OptionsIntent options
 OptionsIntent go to options
 ChangeOptionsIntent change {OptionName} to {OptionValue}
 ChangeOptionsIntent set {OptionName} to {OptionValue}
+LongOptionIntent long
+LongOptionIntent long game
+ShortOptionIntent short
+ShortOptionIntent short game
 AMAZON.StopIntent stop
 AMAZON.StopIntent off
 AMAZON.StopIntent shut up
