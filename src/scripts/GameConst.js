@@ -49,7 +49,7 @@ var GameConst = {
       //" Shout START TUTORIAL to begin the tutorial. " +
       //" Shout START GAME to skip the tutorial. ",
 
-      DURATION_QUESTION: "Would you like to play a long game, or a short game?",
+      DURATION_QUESTION: "Would you like to play a long game, or, a short game?",
       SKIP_TUTORIAL_QUESTION: "Would you like to skip the tutorial?",
 
       // +
@@ -79,9 +79,10 @@ var GameConst = {
 
     Sounds: {
       ROAR: "<audio src='https://s3.amazonaws.com/brutadonsounds/output.mp3'/> ",
-      SUCCESS: "<audio src='https://s3.amazonaws.com/brutadonsounds/success20170204.mp3'/> ",
-      FAIL: "<audio src='https://s3.amazonaws.com/brutadonsounds/failure20170204.mp3'/> ",
-      ENDING: "<audio src='https://s3.amazonaws.com/brutadonsounds/endingbrutadon.mp3'/> ",
+      ROUND_START: "<audio src='https://s3.amazonaws.com/brutadonsounds/Round+Start+v3.mp3'/>",
+      SUCCESS: "<audio src='https://s3.amazonaws.com/brutadonsounds/Success+v2.mp3'/> ",
+      FAIL: "<audio src='https://s3.amazonaws.com/brutadonsounds/Failure+v3.mp3'/> ",
+      ENDING: "<audio src='https://s3.amazonaws.com/brutadonsounds/Beginning+of+the+End+v2.mp3'/> ",
     }
 };
 

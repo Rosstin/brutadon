@@ -13,7 +13,7 @@ var GameMachine = require('./GameMachine');
 GameMachine.addState(GameConst.States.SETUP, {
     onTransition: function() {
         return GameConst.Sounds.ROAR +
-            GameConst.Text.WELCOME +
+            GameConst.Text.WELCOME + " " +
             GameMachine.getResponseForNewState(GameConst.States.CONFIGURE_LENGTH);
     },
 
@@ -152,8 +152,8 @@ GameMachine.addState(GameConst.States.FIGHT, {
         GameData.currentEvent = fightEvent;
         GameData.fightIndex++;
 
-        if(GameData.promptEveryTime) return GameConst.Sounds.ROAR + fightEvent.prompt + " " + GameConst.Text.PROMPT;
-        else return GameConst.Sounds.ROAR + fightEvent.prompt;
+        if(GameData.promptEveryTime) return GameConst.Sounds.ROUND_START + fightEvent.prompt + " " + GameConst.Text.PROMPT;
+        else return GameConst.Sounds.ROUND_START + fightEvent.prompt;
     },
 
     onIntent: function(intentKey) {
