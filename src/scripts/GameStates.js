@@ -13,8 +13,8 @@ var GameMachine = require('./GameMachine');
 GameMachine.addState(GameConst.States.SETUP, {
     onTransition: function() {
         return GameConst.Sounds.ROAR +
-            GameConst.Text.WELCOME + " " +
-            GameMachine.getResponseForNewState(GameConst.States.CONFIGURE_LENGTH);
+            GameConst.Text.WELCOME + " " + 
+            GameMachine.getResponseForNewState(GameConst.States.CONFIGURE_TUTORIAL);
     },
 
     onIntent: function(intentId) {
