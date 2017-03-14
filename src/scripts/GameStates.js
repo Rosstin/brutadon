@@ -116,7 +116,7 @@ GameMachine.addState(GameConst.States.TUTORIAL, {
         }
         var tutorialEvent = GameData.tutorialEvents[GameData.tutorialIndex];
         GameData.currentEvent = tutorialEvent;
-        return GameConst.Sounds.ROAR + tutorialEvent.prompt;
+        return GameConst.Sounds.ROUND_START + tutorialEvent.prompt;
     },
 
     onIntent: function(intentKey) {
