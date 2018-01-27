@@ -1,7 +1,7 @@
 /**
- *  YOU GOT THIS BRUTADON
+ *  THE HANDS OF AN ANGRY GOD
  *
- *  Made for Global Game Jam 2017 @ Facebook MPK
+ *  Made for Global Game Jam 2018 @ Facebook MPK
  */
 'use strict';
 var BrutadonGame = require('./scripts/BrutadonGame');
